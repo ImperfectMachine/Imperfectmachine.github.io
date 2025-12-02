@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>Imperfect Machine | Lyrics</title>
+  <meta name="description" content="Lyrics and song credits for Imperfect Machine (IMPΞRFECT MACH1NE).">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-soft: #10111a;
+      --card: #0d0f1b;
+      --accent: #63e0ff;
+      --text-main: #f5f5ff;
+      --text-muted: #9b9bb8;
+      --border: #262a40;
+      --body-bg: radial-gradient(circle at top, #101020, #02030b);
+      --header-bg:
+        radial-gradient(circle at 10% 0%, rgba(255,51,102,.22), transparent 55%),
+        radial-gradient(circle at 90% 0%, rgba(99,224,255,.25), transparent 60%),
+        linear-gradient(to bottom, #050510, #02030b);
+    }
+
+    [data-theme="light"] {
+      --bg: #f4f4fb;
+      --bg-soft: #ffffff;
+      --card: #ffffff;
+      --accent: #245bff;
+      --text-main: #111322;
+      --text-muted: #555978;
+      --border: #d2d6ea;
+      --body-bg: linear-gradient(to bottom, #f6f7ff, #e4e7ff);
+      --header-bg: linear-gradient(to bottom, #e7e9ff, #d5dafc);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--body-bg);
+      color: var(--text-main);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      padding: 3.2rem 1.5rem 2rem;
+      text-align: center;
+      background: var(--header-bg);
+      border-bottom: 1px solid rgba(99,224,255,.15);
+    }
+    h1 {
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 2rem;
+      margin: 0 0 0.5rem;
+    }
+    .tagline {
+      opacity: 0.9;
+      max-width: 640px;
+      margin: 0.4rem auto 0;
+      font-size: 0.95rem;
+    }
+
+    nav {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    nav a {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(227,227,255,.25);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      opacity: 0.85;
+    }
+    nav a:hover { opacity: 1; border-color: rgba(99,224,255,.8); }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2.3rem 1.5rem 4rem;
+    }
+    .section { margin-top: 0; }
+
+    h2 {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 1rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .section-lead {
+      margin-top: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 640px;
+    }
+
+    .grid { display: grid; gap: 1.5rem; }
+    @media (min-width: 768px) {
+      .grid-2 { grid-template-columns: 0.9fr 1.6fr; }
+    }
+
+    .card {
+      background:
+        radial-gradient(circle at top, rgba(99,224,255,.05), transparent 55%),
+        var(--card);
+      padding: 1.4rem 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 35px rgba(0,0,0,.65);
+    }
+    [data-theme="light"] .card {
+      box-shadow: 0 10px 24px rgba(15,23,42,0.15);
+    }
+
+    .song-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .song-list li { margin-bottom: 0.5rem; }
+    .song-button {
+      width: 100%;
+      text-align: left;
+      padding: 0.55rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--text-main);
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .song-button:hover {
+      border-color: var(--accent);
+    }
+    .song-button.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(99,224,255,0.35);
+    }
+
+    .lyrics-box {
+      background: var(--bg-soft);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      padding: 1rem;
+      white-space: pre-wrap;
+      font-family: inherit;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .credits-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.3rem 0 0.8rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      padding: 1.8rem 1rem 2.6rem;
+      border-top: 1px solid rgba(38,42,64,.8);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(5,5,18,0.9);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(0,0,0,.7);
+      z-index: 999;
+    }
+    [data-theme="light"] .theme-toggle {
+      background: #ffffff;
+      box-shadow: 0 10px 22px rgba(15,23,42,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lyrics & Credits</h1>
+    <p class="tagline">
+      Explore the words behind the songs and the people who brought them to life.
+    </p>
+
+    <nav>
+      <a href="index.html#top">Home</a>
+      <a href="index.html#music">Music</a>
+      <a href="lyrics.html">Lyrics</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2>Songs</h2>
+      <p class="section-lead">
+        Choose a song to view its lyrics and full credits. More titles will be added here as they’re released.
+      </p>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3 style="margin-top:0;">Tracklist</h3>
+          <ul class="song-list">
+            <li>
+              <button class="song-button active" data-song-id="dont-count-on-me">
+                Don’t Count On Me
+              </button>
+            </li>
+            <!-- Add more songs here later -->
+          </ul>
+        </div>
+
+        <div id="songDetail" class="card">
+          <h3 id="songTitle" style="margin-top:0;">Don’t Count On Me</h3>
+
+          <h4 style="margin-bottom:0.3rem;">Credits</h4>
+          <ul id="creditsList" class="credits-list">
+            <!-- Filled by JS -->
+          </ul>
+
+          <h4 style="margin-bottom:0.3rem;">Lyrics</h4>
+          <pre id="lyricsBox" class="lyrics-box"></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark or light mode">☾</button>
+
+  <footer>
+    &copy; <span id="year"></span> Imperfect Machine. All rights reserved.
+  </footer>
+
+  <script>
+    // Theme toggle (same behavior as index)
+    (function() {
+      const root = document.documentElement;
+      const stored = localStorage.getItem('imperfect-theme');
+      if (stored === 'light' || stored === 'dark') {
+        root.setAttribute('data-theme', stored);
+      } else {
+        root.setAttribute('data-theme', 'dark');
+      }
+
+      function updateToggle() {
+        const btn = document.getElementById('themeToggle');
+        if (!btn) return;
+        const current = root.getAttribute('data-theme') || 'dark';
+        if (current === 'dark') {
+          btn.textContent = '☾';
+          btn.setAttribute('aria-label', 'Switch to light mode');
+        } else {
+          btn.textContent = '☼';
+          btn.setAttribute('aria-label', 'Switch to dark mode');
+        }
+      }
+
+      window.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('themeToggle');
+        if (!btn) return;
+        updateToggle();
+        btn.addEventListener('click', function() {
+          const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          localStorage.setItem('imperfect-theme', next);
+          updateToggle();
+        });
+
+        const yearSpan = document.getElementById('year');
+        if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+      });
+    })();
+
+    // Lyrics + credits data
+    const songs = {
+      "dont-count-on-me": {
+        title: "Don\u2019t Count On Me",
+        credits: [
+          "Written By: Matthew Smith",
+          "Performed By: Matthew Smith & Bryan Coulter",
+          "Produced By: Matthew Smith & Imperfect Machine (AI-Assisted)",
+          "Mastered By: David Sayago"
+        ],
+        lyrics: `VERSE 1:
+We built our love in this life we made 
+Felt good with everything 
+Then we got hit with a sudden change 
+Near the end 
+Every fight I’m left with all the blame 
+I gave you everything 
+Still you just chose to run away 
+In the end 
+
+PRECHORUS:
+It’s so hard to breathe when you can’t get away 
+
+CHORUS:
+All my life 
+I’ve always tried to be the voice of reason 
+Now this time 
+Don’t count on me, count on me
+All my life 
+You tried to say there was no choice for leaving 
+Now this time 
+Don’t count on me, count on me 
+
+VERSE 2: 
+I’m all played out from this masquerade 
+You made up everything
+So now I suffer from the pain 
+In your head 
+
+PRECHORUS:
+It’s so hard to breathe when you can’t get away 
+
+CHORUS:
+All my life 
+I’ve always tried to be the voice of reason 
+Now this time 
+Don’t count on me, count on me
+All my life 
+You tried to say there was no choice for leaving 
+Now this time 
+Don’t count on me, count on me 
+
+BRIDGE:
+You wanted more when I gave you everything 
+Your finding comfort in all your lies 
+Look what you’ve done with all your hate yea
+You should have just turned and walked away 
+In the end
+In the end 
+In the end
+
+CHORUS:
+All my life 
+I’ve always tried to be the voice of reason 
+Now this time 
+Don’t count on me, count on me
+All my life 
+You tried to say there was no choice for leaving 
+Now this time 
+Don’t count on me, count on me 
+
+OUTRO:
+Don’t count on me
+Don’t count on me
+Don’t count on me`
+      }
+    };
+
+    function renderSong(id) {
+      const song = songs[id];
+      if (!song) return;
+
+      const titleEl = document.getElementById('songTitle');
+      const creditsEl = document.getElementById('creditsList');
+      const lyricsEl = document.getElementById('lyricsBox');
+
+      if (titleEl) titleEl.textContent = song.title;
+      if (creditsEl) {
+        creditsEl.innerHTML = song.credits
+          .map(line => `<li>${line}</li>`)
+          .join("");
+      }
+      if (lyricsEl) {
+        lyricsEl.textContent = song.lyrics;
+      }
+
+      document.querySelectorAll('.song-button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.songId === id);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.song-button').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const id = this.dataset.songId;
+          renderSong(id);
+        });
+      });
+
+      // Load default song
+      renderSong('dont-count-on-me');
+    });
+  </script>
+</body>
+</html>
