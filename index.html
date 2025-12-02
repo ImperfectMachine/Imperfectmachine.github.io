@@ -12,8 +12,6 @@
       --bg-soft: #10111a;
       --card: #0d0f1b;
       --accent: #63e0ff;
-      --accent-soft: #284b63;
-      --accent-warn: #ff3366;
       --text-main: #f5f5ff;
       --text-muted: #9b9bb8;
       --border: #262a40;
@@ -33,7 +31,7 @@
       text-align: center;
       background:
         radial-gradient(circle at 10% 0%, rgba(255,51,102,.22), transparent 55%),
-        radial-gradient(circle at 90% 0?, rgba(99,224,255,.25), transparent 60%),
+        radial-gradient(circle at 90% 0%, rgba(99,224,255,.25), transparent 60%),
         linear-gradient(to bottom, #050510, #02030b);
       border-bottom: 1px solid rgba(99,224,255,.15);
     }
@@ -59,14 +57,9 @@
       opacity: .7;
       mix-blend-mode: screen;
     }
-    .glitch::before {
-      transform: translateX(-2px);
-      color: #ff3366;
-    }
-    .glitch::after {
-      transform: translateX(2px);
-      color: #63e0ff;
-    }
+    .glitch::before { transform: translateX(-2px); color: #ff3366; }
+    .glitch::after { transform: translateX(2px); color: #63e0ff; }
+
     .tagline {
       opacity: 0.9;
       max-width: 640px;
@@ -81,9 +74,9 @@
       color: var(--text-muted);
     }
 
-    /* top social bar */
+    /* Top social buttons */
     .social-bar {
-      margin: 1.8rem auto 0.3rem;
+      margin: 2rem auto 0.3rem;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -92,30 +85,14 @@
     .social-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      padding: 0.25rem 0.7rem;
+      padding: 0.35rem 0.9rem;
       border-radius: 999px;
       background: rgba(5,5,18,.7);
       border: 1px solid rgba(227,227,255,.12);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--text-main);
+      letter-spacing: 0.02em;
     }
-    .social-link span.icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.25rem;
-      height: 1.25rem;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      background: #111320;
-    }
-    .social-link--fb span.icon { background: #1877f2; }
-    .social-link--ig span.icon { background: linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4); }
-    .social-link--tt span.icon { background: #000000; }
-    .social-link--yt span.icon { background: #ff0000; }
-    .social-link--x span.icon { background: #000000; }
 
     nav {
       margin-top: 1.6rem;
@@ -133,20 +110,15 @@
       letter-spacing: 0.16em;
       opacity: 0.85;
     }
-    nav a:hover {
-      opacity: 1;
-      border-color: rgba(99,224,255,.8);
-      text-decoration: none;
-    }
+    nav a:hover { opacity: 1; border-color: rgba(99,224,255,.8); }
 
     .container {
       max-width: 1040px;
       margin: 0 auto;
       padding: 2.5rem 1.5rem 4rem;
     }
-    .section {
-      margin-top: 3rem;
-    }
+    .section { margin-top: 3rem; }
+
     h2 {
       text-transform: uppercase;
       letter-spacing: 0.18em;
@@ -173,13 +145,7 @@
       border: 1px solid var(--border);
       box-shadow: 0 14px 35px rgba(0,0,0,.65);
     }
-    .card h3 {
-      margin-top: 0;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-main);
-    }
+
     iframe {
       width: 100%;
       min-height: 230px;
@@ -188,15 +154,8 @@
       background: #000;
     }
 
-    .platform-list {
-      list-style: none;
-      padding: 0;
-      margin: 0.5rem 0 0;
-      font-size: 0.92rem;
-    }
-    .platform-list li {
-      margin-bottom: 0.4rem;
-    }
+    .platform-list { list-style: none; padding: 0; margin: 0.5rem 0 0; }
+    .platform-list li { margin-bottom: 0.4rem; }
 
     .pill {
       display: inline-block;
@@ -221,11 +180,6 @@
       text-transform: uppercase;
       letter-spacing: 0.18em;
     }
-    .news-item p {
-      margin: 0.3rem 0 0.2rem;
-      color: var(--text-muted);
-      font-size: 0.93rem;
-    }
 
     .merch-grid {
       display: grid;
@@ -234,6 +188,7 @@
     @media (min-width: 640px) {
       .merch-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
+
     .merch-item {
       background: var(--bg-soft);
       border-radius: 12px;
@@ -248,18 +203,6 @@
       margin-bottom: 0.5rem;
       display: block;
     }
-    .merch-tag {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-    }
-
-    .socials a {
-      margin-right: 0.85rem;
-      font-size: 0.9rem;
-      color: var(--accent);
-    }
 
     footer {
       text-align: center;
@@ -267,40 +210,31 @@
       color: var(--text-muted);
       padding: 1.8rem 1rem 2.6rem;
       border-top: 1px solid rgba(38,42,64,.8);
-      background: radial-gradient(circle at bottom, #141424, #050509);
     }
   </style>
 </head>
+
 <body>
+
   <header id="top">
-    <h1>
-      <span class="glitch" data-text="IMPΞRFECT MACH1NE">IMPΞRFECT MACH1NE</span>
-    </h1>
+    <h1><span class="glitch" data-text="IMPΞRFECT MACH1NE">IMPΞRFECT MACH1NE</span></h1>
+
     <p class="tagline">
-      Hard rock / alternative metal from a future run by machines.
-    </p>
-    <p class="subtagline">
-      Every song is written, performed, and recorded by a human — transformed by the machine — and then returned
-      to human hands for mastering and final validation.
+      Hard rock / alternative metal shaped by human performance and machine precision.
     </p>
 
-    <!-- Top social bar with icons -->
+    <p class="subtagline">
+      Every song is written, performed, and recorded by a human — transformed by the machine — then brought
+      back to a human for mastering and final approval.
+    </p>
+
+    <!-- Social Button Bar -->
     <div class="social-bar">
-      <a class="social-link social-link--fb" href="https://www.facebook.com/imperfectmachine" target="_blank" rel="noopener">
-        <span class="icon">f</span><span>Facebook</span>
-      </a>
-      <a class="social-link social-link--ig" href="https://www.instagram.com/imperfectmachineofficial" target="_blank" rel="noopener">
-        <span class="icon">IG</span><span>Instagram</span>
-      </a>
-      <a class="social-link social-link--tt" href="https://www.tiktok.com/@imperfect.machine" target="_blank" rel="noopener">
-        <span class="icon">𝄞</span><span>TikTok</span>
-      </a>
-      <a class="social-link social-link--yt" href="https://youtube.com/@imperfectmachineofficial" target="_blank" rel="noopener">
-        <span class="icon">▶</span><span>YouTube</span>
-      </a>
-      <a class="social-link social-link--x" href="https://x.com/1mprfctmchn3" target="_blank" rel="noopener">
-        <span class="icon">X</span><span>X</span>
-      </a>
+      <a class="social-link" href="https://www.facebook.com/imperfectmachine" target="_blank">Facebook</a>
+      <a class="social-link" href="https://www.instagram.com/imperfectmachineofficial" target="_blank">Instagram</a>
+      <a class="social-link" href="https://www.tiktok.com/@imperfect.machine" target="_blank">TikTok</a>
+      <a class="social-link" href="https://youtube.com/@imperfectmachineofficial" target="_blank">YouTube</a>
+      <a class="social-link" href="https://x.com/1mprfctmchn3" target="_blank">X / Twitter</a>
     </div>
 
     <nav>
@@ -318,15 +252,14 @@
     <section id="music" class="section">
       <h2>Music</h2>
       <p class="section-lead">
-        Stream Imperfect Machine’s hard rock / alternative metal tracks directly from this page, or hit your favorite platform below.
+        Stream Imperfect Machine’s hard rock / alternative metal tracks directly from this page, or open them on your favorite platform.
       </p>
 
       <div class="grid grid-2">
         <div>
           <span class="pill">Now Playing</span>
-          <h3 style="margin-top:0.3rem; font-size:1.05rem;">Latest Single</h3>
+          <h3 style="margin-top:0.3rem;">Latest Single</h3>
 
-          <!-- 👉 Replace this Spotify embed with your real one -->
           <iframe src="https://open.spotify.com/embed/track/YOUR_TRACK_ID_HERE"
                   loading="lazy"
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
@@ -336,8 +269,8 @@
         <div class="card">
           <h3>Listen on Streaming</h3>
           <ul class="platform-list">
-            <li><strong>Spotify:</strong> <a href="https://open.spotify.com/artist/YOUR_ARTIST_ID" target="_blank" rel="noopener">Follow Imperfect Machine</a></li>
-            <li><strong>Apple Music:</strong> <a href="https://music.apple.com/artist/YOUR_ARTIST_ID" target="_blank" rel="noopener">Add to your library</a></li>
+            <li><strong>Spotify:</strong> <a href="https://open.spotify.com/artist/YOUR_ARTIST_ID" target="_blank">Follow Imperfect Machine</a></li>
+            <li><strong>Apple Music:</strong> <a href="https://music.apple.com/artist/YOUR_ARTIST_ID" target="_blank">Add on Apple Music</a></li>
           </ul>
         </div>
       </div>
@@ -347,7 +280,7 @@
     <section id="video" class="section">
       <h2>Videos</h2>
       <p class="section-lead">
-        Cinematic, dystopian visuals built around each track — lyric videos, AI-driven worlds, and story-driven cuts.
+        Visuals built around each track — lyric videos, performance clips, and AI-assisted concepts.
       </p>
 
       <div class="grid">
@@ -356,11 +289,11 @@
           <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE"
                   title="Imperfect Machine - Featured Video"
                   loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen>
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
           </iframe>
+
           <p style="margin-top:0.7rem; font-size:0.9rem; color:var(--text-muted);">
-            Drop custom video descriptions here: story behind the visuals, lyrical themes, or easter eggs hidden in the animations.
+            Add context here about the video, its concept, or how AI and live recording came together during production.
           </p>
         </div>
       </div>
@@ -370,23 +303,19 @@
     <section id="news" class="section">
       <h2>News</h2>
       <p class="section-lead">
-        Project updates, new releases, and transmission logs from the machine.
+        Updates, release announcements, and notes from the ongoing collaboration between human and machine.
       </p>
 
       <div class="news-item">
         <div class="news-date">DEC 2025</div>
-        <strong>New Imperfect Machine single online.</strong>
-        <p>
-          Announce the latest track here — what it sounds like, what it’s about, and where to hear it first. Update this text whenever a new song drops.
-        </p>
+        <strong>New Imperfect Machine single released.</strong>
+        <p>Update this text with details about your newest song — theme, production notes, or release info.</p>
       </div>
 
       <div class="news-item">
         <div class="news-date">NOV 2025</div>
-        <strong>AI-driven video series in progress.</strong>
-        <p>
-          Use this space for behind-the-scenes notes on upcoming videos, collaborations, live performance plans, or lore about the world of Imperfect Machine.
-        </p>
+        <strong>New production experiments underway.</strong>
+        <p>Use this space for behind-the-scenes notes on upcoming work, creative ideas, or AI-assisted production techniques.</p>
       </div>
     </section>
 
@@ -394,74 +323,69 @@
     <section id="merch" class="section">
       <h2>Merch</h2>
       <p class="section-lead">
-        Physical artifacts from a corrupted future. All items are sold through an external store — this page just showcases the designs.
+        Apparel, accessories, and physical media. Items are sold through an external store — this page shows previews only.
       </p>
 
       <div class="merch-grid">
         <div class="merch-item">
           <div class="merch-tag">Apparel</div>
-          <img src="https://via.placeholder.com/400x400.png?text=Imperfect+Machine+Tee" alt="Imperfect Machine T-Shirt">
+          <img src="https://via.placeholder.com/400x400.png?text=Imperfect+Machine+Tee">
           <div style="margin:0.3rem 0 0.2rem;">Logo T-Shirt</div>
-          <a href="https://YOUR-MERCH-STORE-URL/tee" target="_blank" rel="noopener">View on merch store</a>
+          <a href="https://YOUR-MERCH-STORE-URL/tee" target="_blank">View on merch store</a>
         </div>
 
         <div class="merch-item">
           <div class="merch-tag">Hoodie</div>
-          <img src="https://via.placeholder.com/400x400.png?text=Glitch+Logo+Hoodie" alt="Imperfect Machine Hoodie">
-          <div style="margin:0.3rem 0 0.2rem;">Glitch Logo Hoodie</div>
-          <a href="https://YOUR-MERCH-STORE-URL/hoodie" target="_blank" rel="noopener">View on merch store</a>
+          <img src="https://via.placeholder.com/400x400.png?text=Glitch+Logo+Hoodie">
+          <div style="margin:0.3rem 0 0.2rem;">Glitch Hoodie</div>
+          <a href="https://YOUR-MERCH-STORE-URL/hoodie" target="_blank">View on merch store</a>
         </div>
 
         <div class="merch-item">
           <div class="merch-tag">Music</div>
-          <img src="https://via.placeholder.com/400x400.png?text=Album+Art" alt="Album Art">
-          <div style="margin:0.3rem 0 0.2rem;">Physical Album / Vinyl</div>
-          <a href="https://YOUR-MERCH-STORE-URL/album" target="_blank" rel="noopener">View on merch store</a>
+          <img src="https://via.placeholder.com/400x400.png?text=Album+Art">
+          <div style="margin:0.3rem 0 0.2rem;">CD / Vinyl</div>
+          <a href="https://YOUR-MERCH-STORE-URL/album" target="_blank">View on merch store</a>
         </div>
       </div>
-
-      <p style="margin-top:1rem; font-size:0.9rem;">
-        Browse the full catalog at
-        <a href="https://YOUR-MERCH-STORE-URL" target="_blank" rel="noopener">the official Imperfect Machine merch store</a>.
-      </p>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="section">
       <h2>About Imperfect Machine</h2>
       <p class="section-lead">
-        A human heart caught inside a broken circuit — Imperfect Machine blurs the line between organic hard rock / alt metal and cold, mechanical post-production.
+        A modern hard rock / alt metal project exploring how human creativity and machine-driven production can coexist.
       </p>
 
       <div class="card">
         <p style="margin-top:0;">
-          Imperfect Machine (styled <strong>IMPΞRFECT MACH1NE</strong>) is a hard rock / alternative metal project built
-          around a hybrid creative workflow: <strong>every song begins with a human</strong>. The writing, performance, and
-          raw recording are all done by a real person in a real room — flaws, emotion, and all.
+          Imperfect Machine (styled <strong>IMPΞRFECT MACH1NE</strong>) is built around a hybrid creative workflow:
+          <strong>every song begins with a human</strong>. The writing, performance, and raw recording all happen in a real room,
+          capturing genuine emotion and intent.
         </p>
 
         <p>
-          Once the performance is captured, the audio is handed off to <strong>the machine</strong> — a cold,
-          algorithmic production layer that bends, distorts, enhances, and restructures the material into something
-          futuristic and mechanical. But the process doesn’t end there: <strong>the song is then brought back
-          to a human for mastering and final validation</strong>, ensuring the finished piece still carries the
-          heart and intent it started with.
+          After that, the audio is passed to <strong>the machine</strong> — a modern production stage that uses software, algorithms,
+          and AI tools to reshape and enhance the material. Finally, the song is brought <strong>back to a human</strong> for mastering
+          and final approval.
         </p>
 
         <p>
-          The result is riff-driven hard rock and alternative metal with a cinematic, dystopian edge. Glitches,
-          artifacts, and processed textures aren’t errors — they’re part of the language, reflecting a world
-          where humans and machines fight for creative control.
+          The result is heavy, guitar-driven music with added detail and texture from the digital side — not a sci-fi concept,
+          but a present-day collaboration between human expression and machine precision.
         </p>
 
         <h3 style="margin-top:1.4rem;">Connect</h3>
-        <p class="socials">
-          <a href="https://www.instagram.com/imperfectmachineofficial" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.facebook.com/imperfectmachine" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://youtube.com/@imperfectmachineofficial" target="_blank" rel="noopener">YouTube</a>
-          <a href="https://x.com/1mprfctmchn3" target="_blank" rel="noopener">X</a>
-          <a href="mailto:ImperfectMachineOfficial@gmail.com">Email</a>
-        </p>
+
+        <ul style="list-style:none; padding-left:0; line-height:1.7; margin-top:0.5rem;">
+          <li><strong>Instagram:</strong> <a href="https://www.instagram.com/imperfectmachineofficial" target="_blank">instagram.com/imperfectmachineofficial</a></li>
+          <li><strong>Facebook:</strong> <a href="https://www.facebook.com/imperfectmachine" target="_blank">facebook.com/imperfectmachine</a></li>
+          <li><strong>YouTube:</strong> <a href="https://youtube.com/@imperfectmachineofficial" target="_blank">youtube.com/@imperfectmachineofficial</a></li>
+          <li><strong>TikTok:</strong> <a href="https://www.tiktok.com/@imperfect.machine" target="_blank">tiktok.com/@imperfect.machine</a></li>
+          <li><strong>X / Twitter:</strong> <a href="https://x.com/1mprfctmchn3" target="_blank">x.com/1mprfctmchn3</a></li>
+          <li><strong>Email:</strong> <a href="mailto:ImperfectMachineOfficial@gmail.com">ImperfectMachineOfficial@gmail.com</a></li>
+        </ul>
+
       </div>
     </section>
 
@@ -471,5 +395,6 @@
     &copy; <span id="year"></span> Imperfect Machine. All rights reserved.
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   </footer>
+
 </body>
 </html>
