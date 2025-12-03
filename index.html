@@ -57,7 +57,6 @@
       margin: 0 0 0.4rem;
     }
 
-    /* glitch styles kept in case you reuse them */
     .glitch {
       display: inline-block;
       position: relative;
@@ -219,24 +218,6 @@
       display: grid;
       gap: 1rem;
     }
-    @media (min-width: 640px) {
-      .merch-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    }
-
-    .merch-item {
-      background: var(--bg-soft);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      padding: 0.9rem;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-    .merch-item img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
 
     footer {
       text-align: center;
@@ -317,19 +298,39 @@
           <span class="pill">Now Playing</span>
           <h3 style="margin-top:0.3rem;">Latest Single</h3>
 
-          <!-- Replace src with your real Spotify embed when ready -->
-          <iframe src="https://open.spotify.com/embed/track/YOUR_TRACK_ID_HERE"
-                  loading="lazy"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+          <!-- When the single is live on Spotify:
+               Replace PASTE_SPOTIFY_TRACK_ID_HERE with your real track ID -->
+          <iframe
+            src="https://open.spotify.com/embed/track/PASTE_SPOTIFY_TRACK_ID_HERE"
+            loading="lazy"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
           </iframe>
         </div>
 
         <div class="card">
           <h3>Listen on Streaming</h3>
           <ul class="platform-list">
-            <li><strong>Spotify:</strong> <a href="https://open.spotify.com/artist/YOUR_ARTIST_ID" target="_blank">Follow Imperfect Machine</a></li>
-            <li><strong>Apple Music:</strong> <a href="https://music.apple.com/artist/YOUR_ARTIST_ID" target="_blank">Add on Apple Music</a></li>
+            <!-- Replace these two URLs with your real artist links -->
+            <li><strong>Spotify:</strong>
+              <a href="PASTE_SPOTIFY_ARTIST_URL_HERE" target="_blank">
+                Follow Imperfect Machine on Spotify
+              </a>
+            </li>
+            <li><strong>Apple Music:</strong>
+              <a href="PASTE_APPLE_MUSIC_ARTIST_URL_HERE" target="_blank">
+                Add Imperfect Machine on Apple Music
+              </a>
+            </li>
           </ul>
+
+          <p style="margin-top:0.9rem; font-size:0.9rem;">
+            Presave the upcoming single <strong>“Don’t Count On Me” feat. Dead Echoes</strong>,
+            out <strong>12/12</strong> on all major streaming platforms:
+            <br>
+            <a href="https://distrokid.com/hyperfollow/imperfectmachine/dont-count-on-me-feat-dead-echoes/" target="_blank">
+              Presave “Don’t Count On Me” now
+            </a>
+          </p>
         </div>
       </div>
     </section>
@@ -363,19 +364,19 @@
     <section id="news" class="section">
       <h2>News</h2>
       <p class="section-lead">
-        Updates, release announcements, and notes from the ongoing collaboration between human and machine.
+        Updates on new releases and the evolving collaboration between human and machine.
       </p>
 
       <div class="news-item">
         <div class="news-date">DEC 2025</div>
-        <strong>New Imperfect Machine single released.</strong>
-        <p>Update this text with details about your newest song — theme, production notes, or release info.</p>
-      </div>
-
-      <div class="news-item">
-        <div class="news-date">NOV 2025</div>
-        <strong>New production experiments underway.</strong>
-        <p>Use this space for behind-the-scenes notes on upcoming work, creative ideas, or AI-assisted production techniques.</p>
+        <strong>Upcoming single: “Don’t Count On Me” feat. Dead Echoes.</strong>
+        <p>
+          The first Imperfect Machine single, <strong>“Don’t Count On Me” feat. Dead Echoes</strong>, drops
+          <strong>12/12</strong> on all major streaming platforms. Presave it now so it hits your library on release day:
+          <a href="https://distrokid.com/hyperfollow/imperfectmachine/dont-count-on-me-feat-dead-echoes/" target="_blank">
+            Presave “Don’t Count On Me”
+          </a>.
+        </p>
       </div>
     </section>
 
@@ -383,30 +384,14 @@
     <section id="merch" class="section">
       <h2>Merch</h2>
       <p class="section-lead">
-        Apparel, accessories, and physical media. Items are sold through an external store — this page shows previews only.
+        Shirts, hoodies, and physical releases are in progress. This is where they’ll live once they’re ready.
       </p>
 
-      <div class="merch-grid">
-        <div class="merch-item">
-          <div class="merch-tag">Apparel</div>
-          <img src="https://via.placeholder.com/400x400.png?text=Imperfect+Machine+Tee" alt="Imperfect Machine T-Shirt">
-          <div style="margin:0.3rem 0 0.2rem;">Logo T-Shirt</div>
-          <a href="https://YOUR-MERCH-STORE-URL/tee" target="_blank">View on merch store</a>
-        </div>
-
-        <div class="merch-item">
-          <div class="merch-tag">Hoodie</div>
-          <img src="https://via.placeholder.com/400x400.png?text=Glitch+Logo+Hoodie" alt="Imperfect Machine Hoodie">
-          <div style="margin:0.3rem 0 0.2rem;">Glitch Hoodie</div>
-          <a href="https://YOUR-MERCH-STORE-URL/hoodie" target="_blank">View on merch store</a>
-        </div>
-
-        <div class="merch-item">
-          <div class="merch-tag">Music</div>
-          <img src="https://via.placeholder.com/400x400.png?text=Album+Art" alt="Album Art">
-          <div style="margin:0.3rem 0 0.2rem;">CD / Vinyl</div>
-          <a href="https://YOUR-MERCH-STORE-URL/album" target="_blank">View on merch store</a>
-        </div>
+      <div class="card">
+        <p style="margin:0; font-size:0.95rem;">
+          Merch coming soon. Check back after the release of <strong>“Don’t Count On Me”</strong> for official
+          Imperfect Machine apparel and physical music.
+        </p>
       </div>
     </section>
 
