@@ -56,6 +56,8 @@
       font-size: 2.4rem;
       margin: 0 0 0.4rem;
     }
+
+    /* glitch styles kept in case you reuse them */
     .glitch {
       display: inline-block;
       position: relative;
@@ -270,7 +272,10 @@
 </head>
 <body>
   <header id="top">
-    <h1><span class="glitch" data-text="IMPΞRFECT MACH1NE">IMPΞRFECT MACH1NE</span></h1>
+    <h1 style="margin:0;">
+      <img src="2.png" alt="Imperfect Machine Logo"
+           style="max-width:280px; width:90%; height:auto; margin:0 auto 0.3rem; display:block;">
+    </h1>
     <p class="microtagline">Half human. Half machine. Still fully broken.</p>
     <p class="tagline">
       Hard rock / alternative metal shaped by human performance and machine precision.
@@ -312,7 +317,7 @@
           <span class="pill">Now Playing</span>
           <h3 style="margin-top:0.3rem;">Latest Single</h3>
 
-          <!-- Replace src with your real Spotify embed -->
+          <!-- Replace src with your real Spotify embed when ready -->
           <iframe src="https://open.spotify.com/embed/track/YOUR_TRACK_ID_HERE"
                   loading="lazy"
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
@@ -339,16 +344,16 @@
       <div class="grid">
         <div class="card">
           <h3>Featured Video</h3>
-          <!-- Replace VIDEO_ID_HERE with your real YouTube ID -->
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE"
-                  title="Imperfect Machine - Featured Video"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen>
+          <iframe
+            src="https://www.youtube.com/embed/xJVYUJiZNvo"
+            title="Imperfect Machine - Don’t Count On Me feat. Dead Echoes (Official Lyric Video)"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
           </iframe>
 
           <p style="margin-top:0.7rem; font-size:0.9rem; color:var(--text-muted);">
-            Add context here about the video, its concept, or how AI and live recording came together during production.
+            “Don’t Count On Me” feat. Dead Echoes - Official Lyric Video
           </p>
         </div>
       </div>
