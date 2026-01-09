@@ -250,7 +250,7 @@
     <section>
       <h2>Songs</h2>
       <p class="section-lead">
-        Select a track to view its full lyrics and credits. More songs will be added as they’re released.
+        Select a track to view its full lyrics and credits.
       </p>
 
       <div class="grid grid-2">
@@ -258,7 +258,12 @@
           <h3 style="margin-top:0;">Tracklist</h3>
           <ul class="song-list">
             <li>
-              <button class="song-button active" data-song-id="dont-count-on-me">
+              <button class="song-button active" data-song-id="into-the-night">
+                Into The Night (feat. Dead Echoes)
+              </button>
+            </li>
+            <li>
+              <button class="song-button" data-song-id="dont-count-on-me">
                 Don’t Count On Me (feat. Dead Echoes)
               </button>
             </li>
@@ -266,7 +271,7 @@
         </div>
 
         <div id="songDetail" class="card">
-          <h3 id="songTitle" style="margin-top:0;">Don’t Count On Me (feat. Dead Echoes)</h3>
+          <h3 id="songTitle" style="margin-top:0;"></h3>
 
           <div class="action-row" id="songLinks"></div>
 
@@ -274,7 +279,7 @@
           <iframe
             id="spotifyEmbed"
             class="spotify-embed"
-            src="https://open.spotify.com/embed/track/0Tl3yFExWqU5zwJQcF3nAb"
+            src=""
             loading="lazy"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
           </iframe>
@@ -338,6 +343,64 @@
     })();
 
     const songs = {
+      "into-the-night": {
+        title: "Into The Night (feat. Dead Echoes)",
+        spotify: "https://open.spotify.com/track/2HLkJVvWlfhSoV6GYDiDds?si=uEtAMcWdQTatpP2XLaMrHg&context=spotify%3Aplaylist%3A37i9dQZEVXbjHsuKJnQaXC",
+        spotifyEmbed: "https://open.spotify.com/embed/track/2HLkJVvWlfhSoV6GYDiDds",
+        apple: "https://music.apple.com/us/album/into-the-night-feat-dead-echoes/1861223150?i=1861223151",
+        youtube: "https://youtu.be/xJVYUJiZNvo?si=xmBEGJ47qmkRxlTP",
+        credits: [
+          "Written By: Matthew Smith",
+          "Performed By: Matthew Smith & Bryan Coulter",
+          "Produced By: Matthew Smith & Imperfect Machine (AI-Assisted)",
+          "Mastered By: David Sayago"
+        ],
+        lyrics: `VERSE 1:
+My limbs are frozen 
+A body without a soul 
+Another hopeless surrender
+And I hate the way 
+You left me to feel this all alone 
+Here we go 
+
+CHORUS:
+Into the night 
+Into the darkness where I can’t breathe 
+Into the night 
+Into the storm that’s inside of me 
+Into the night 
+
+VERSE 2:
+My thoughts control me 
+Don’t want me to be no more 
+(Give me a life to remember) 
+And I hate the way
+I feel so disposable 
+When you let me go 
+
+CHORUS:
+Into the night 
+Into the darkness where I can’t breathe 
+Into the night 
+Into the storm that’s inside of me 
+Into the night 
+Into the darkness where I can’t breathe 
+Into the night 
+Into the storm that’s inside of me 
+Into the night 
+
+CHORUS:
+Into the night 
+Into the darkness where I can’t breathe 
+Into the night 
+Into the storm that’s inside of me 
+Into the night 
+Into the darkness where I can’t breathe 
+Into the night 
+Into the storm that’s inside of me 
+Into the night`
+      },
+
       "dont-count-on-me": {
         title: "Don’t Count On Me (feat. Dead Echoes)",
         spotify: "https://open.spotify.com/track/0Tl3yFExWqU5zwJQcF3nAb?si=fC1wJzFnQ8CI4OVCgmCNKg&context=spotify%3Aalbum%3A0N7R9Nw2RG0chBRPU5gsDB",
@@ -438,17 +501,9 @@ Don’t count on me`
         `;
       }
 
-      if (spotifyEmbedEl) {
-        spotifyEmbedEl.src = song.spotifyEmbed;
-      }
-
-      if (creditsEl) {
-        creditsEl.innerHTML = song.credits.map(line => `<li>${line}</li>`).join("");
-      }
-
-      if (lyricsEl) {
-        lyricsEl.textContent = song.lyrics;
-      }
+      if (spotifyEmbedEl) spotifyEmbedEl.src = song.spotifyEmbed;
+      if (creditsEl) creditsEl.innerHTML = song.credits.map(line => `<li>${line}</li>`).join("");
+      if (lyricsEl) lyricsEl.textContent = song.lyrics;
 
       document.querySelectorAll('.song-button').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.songId === id);
@@ -462,7 +517,8 @@ Don’t count on me`
         });
       });
 
-      renderSong('dont-count-on-me');
+      // Default selection
+      renderSong('into-the-night');
     });
   </script>
 </body>
