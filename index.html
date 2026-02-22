@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IMPΞRFECT MACH1NE | Official Site</title>
 
 <style>
@@ -12,7 +12,7 @@
   --accent:#63e0ff;
   --text:#f4f6ff;
   --muted:#8b90b0;
-  --border:#222533;
+  --border:#1c1f2a;
 }
 
 *{box-sizing:border-box}
@@ -37,8 +37,9 @@ a:hover{opacity:.85}
 /* HEADER */
 
 header{
-  padding:2.5rem 1.5rem;
+  padding:2.5rem 1.5rem 2rem;
   text-align:center;
+  border-bottom:1px solid var(--border);
 }
 
 header img{
@@ -65,19 +66,34 @@ nav a{
   border-radius:999px;
 }
 
+.social{
+  margin-top:1.2rem;
+  display:flex;
+  justify-content:center;
+  gap:1.2rem;
+  flex-wrap:wrap;
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  opacity:.7;
+}
+
+.social a{
+  border-bottom:1px solid transparent;
+  padding-bottom:2px;
+}
+
+.social a:hover{
+  border-bottom:1px solid var(--accent);
+  opacity:1;
+}
+
 /* HERO */
 
 .hero{
   text-align:center;
-  padding:4rem 1.5rem;
-  border-top:1px solid var(--border);
+  padding:5rem 1.5rem;
   border-bottom:1px solid var(--border);
-}
-
-.hero h1{
-  font-size:3rem;
-  letter-spacing:.08em;
-  margin:.5rem 0;
 }
 
 .hero .sub{
@@ -85,6 +101,12 @@ nav a{
   text-transform:uppercase;
   letter-spacing:.25em;
   font-size:.8rem;
+}
+
+.hero h1{
+  font-size:3rem;
+  letter-spacing:.08em;
+  margin:.5rem 0;
 }
 
 .hero .cta{
@@ -96,12 +118,12 @@ nav a{
 }
 
 .btn{
-  padding:.8rem 1.6rem;
+  padding:.85rem 1.7rem;
   border-radius:999px;
-  border:1px solid var(--accent);
   text-transform:uppercase;
   letter-spacing:.15em;
   font-size:.75rem;
+  border:1px solid var(--accent);
   transition:.2s;
 }
 
@@ -128,7 +150,7 @@ nav a{
   margin-bottom:1.5rem;
 }
 
-/* NOW PLAYING */
+/* PLAYER */
 
 .player iframe{
   width:100%;
@@ -139,7 +161,7 @@ nav a{
 /* STREAMING */
 
 .streaming-list p{
-  margin-bottom:1.2rem;
+  margin-bottom:1.4rem;
 }
 
 /* VIDEO */
@@ -147,7 +169,7 @@ nav a{
 .video iframe{
   width:100%;
   border-radius:12px;
-  min-height:360px;
+  min-height:380px;
 }
 
 /* NEWS */
@@ -166,6 +188,8 @@ nav a{
   display:block;
   margin-bottom:.3rem;
 }
+
+/* FOOTER */
 
 footer{
   text-align:center;
@@ -194,6 +218,14 @@ footer{
     <a href="#news">News</a>
     <a href="lyrics.html">Lyrics</a>
   </nav>
+
+  <div class="social">
+    <a href="https://www.facebook.com/imperfectmachine" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/imperfectmachineofficial" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@imperfect.machine" target="_blank">TikTok</a>
+    <a href="https://youtube.com/@imperfectmachineofficial" target="_blank">YouTube</a>
+    <a href="https://x.com/1mprfctmchn3" target="_blank">X / Twitter</a>
+  </div>
 </header>
 
 <!-- HERO -->
@@ -214,10 +246,11 @@ footer{
 <section id="music" class="section player">
   <h2>Now Playing</h2>
   <iframe src="https://open.spotify.com/embed/track/082Gi6kYbxDZ1kRngBbypp"
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+  </iframe>
 </section>
 
-<!-- STREAMING -->
+<!-- OUT NOW -->
 <section class="section streaming-list">
   <h2>Out Now</h2>
 
@@ -235,15 +268,15 @@ footer{
     <a href="https://open.spotify.com/track/0Tl3yFExWqU5zwJQcF3nAb" target="_blank">Spotify</a> |
     <a href="https://music.apple.com/us/album/dont-count-on-me-feat-dead-echoes/1857400042?i=1857400043" target="_blank">Apple Music</a>
   </p>
-
 </section>
 
-<!-- VIDEO -->
+<!-- FEATURED VIDEO -->
 <section id="video" class="section video">
   <h2>Official Video</h2>
   <iframe src="https://www.youtube.com/embed/xJVYUJiZNvo"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe>
+    allowfullscreen>
+  </iframe>
 </section>
 
 <!-- NEWS -->
@@ -264,7 +297,6 @@ footer{
     <strong>Don’t Count On Me — Out Now</strong>
     Official lyric video available.
   </div>
-
 </section>
 
 </div>
