@@ -67,109 +67,66 @@ a:hover{
   opacity:.85;
 }
 
-/* HERO */
-.hero{
-  position:relative;
-  height:92vh;
-  min-height:620px;
+/* TOP HERO IMAGE (no overlay) */
+.hero-top{
+  width:100%;
+  height:min(68vh, 720px);
+  min-height:360px;
   overflow:hidden;
   border-bottom:1px solid var(--border);
+  background:#000;
 }
-
-.hero-media{
-  position:absolute;
-  inset:0;
-}
-
-.hero-media img{
+.hero-top img{
   width:100%;
   height:100%;
   object-fit:cover;
-  filter:brightness(.55) contrast(1.05);
-  transform:scale(1.02);
+  display:block;
 }
 
-.hero-vignette{
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at 50% 40%, rgba(0,0,0,0.05), rgba(0,0,0,0.75) 70%),
-    linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.75) 100%);
-}
-
-.hero-overlay{
-  position:relative;
-  z-index:2;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+/* HEADER STACK (logo -> tagline -> nav) */
+header{
   text-align:center;
-  padding:2.2rem 1rem 1.5rem;
+  padding:2.4rem 1.2rem 1.8rem;
+  border-bottom:1px solid var(--border);
 }
 
-.hero-logo{
-  width:min(320px, 76vw);
+header img.logo{
+  width:min(280px, 75vw);
   height:auto;
   display:block;
   margin:0 auto;
 }
 
 .tagline{
-  margin-top:1rem;
+  margin:1rem auto 0;
+  max-width:720px;
+  color:var(--text-muted);
   font-size:.95rem;
-  color:rgba(255,255,255,.78);
   letter-spacing:.02em;
 }
 
-/* NAV */
 nav{
-  position:absolute;
-  top:1.2rem;
-  left:50%;
-  transform:translateX(-50%);
+  margin:1.4rem auto 0;
   display:flex;
-  gap:.7rem;
-  flex-wrap:wrap;
   justify-content:center;
-  z-index:3;
-  padding:0 .8rem;
+  flex-wrap:wrap;
+  gap:.75rem;
+  max-width:1100px;
+  padding:0 1rem;
 }
-
 nav a{
-  padding:.35rem .85rem;
+  padding:.4rem .9rem;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.22);
-  font-size:.7rem;
+  border:1px solid var(--border);
+  font-size:.75rem;
   text-transform:uppercase;
   letter-spacing:.15em;
   border-bottom:none;
-  background:rgba(0,0,0,.35);
-  backdrop-filter: blur(6px);
+  background:transparent;
 }
 nav a:hover{
-  background:rgba(255,255,255,.10);
-  border-color:rgba(255,255,255,.35);
+  background:rgba(255,255,255,.05);
 }
-
-.hero-actions{
-  margin-top:1.8rem;
-  display:flex;
-  gap:.8rem;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.hero-btn{
-  padding:.7rem 1.1rem;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.30);
-  border-bottom:none;
-  font-size:.85rem;
-  background:rgba(0,0,0,.35);
-}
-.hero-btn:hover{background:rgba(255,255,255,.08)}
 
 /* SECTIONS */
 .section{
@@ -198,7 +155,7 @@ nav a:hover{
   box-shadow:0 10px 24px rgba(15,23,42,.12);
 }
 
-.stack{display:grid;gap:1.2rem}
+.stack{display:grid; gap:1.2rem}
 
 iframe{
   width:100%;
@@ -214,16 +171,14 @@ iframe{
   gap:1rem;
   flex-wrap:wrap;
 }
-
 .stream-btn{
   padding:.6rem 1.1rem;
   border-radius:999px;
   border:1px solid var(--border);
   border-bottom:none;
   font-size:.85rem;
-  text-decoration:none;
-  transition:.2s ease;
   background:transparent;
+  transition:.2s ease;
 }
 .stream-btn:hover{
   background:rgba(255,255,255,.06);
@@ -252,15 +207,10 @@ iframe{
   border-top:none;
   padding-top:0;
 }
-.release-title{
-  font-weight:600;
-}
+.release-title{font-weight:600}
 .release-links{
   color:var(--text-muted);
   font-size:.92rem;
-}
-.release-links a{
-  border-bottom:1px solid rgba(255,255,255,.25);
 }
 
 /* About */
@@ -329,17 +279,23 @@ footer{
   opacity:1;
   pointer-events:auto;
 }
-
-/* responsive tweaks */
-@media(max-width:900px){
-  .hero{height:88vh; min-height:560px;}
-}
 </style>
 </head>
 
 <body>
 
-<section class="hero" id="top">
+<!-- 1) TOP HERO IMAGE ONLY -->
+<section class="hero-top" id="top">
+  <img src="hero.webp" alt="Imperfect Machine Hero Visual">
+</section>
+
+<!-- 2) LOGO -->
+<!-- 3) TAGLINE -->
+<!-- 4) NAV -->
+<header>
+  <img class="logo" src="2.png" alt="Imperfect Machine Logo">
+  <div class="tagline">Half human. Half machine. Still fully broken.</div>
+
   <nav>
     <a href="#music">Music</a>
     <a href="#video">Video</a>
@@ -347,23 +303,7 @@ footer{
     <a href="#news">News</a>
     <a href="#about">About</a>
   </nav>
-
-  <div class="hero-media">
-    <img src="hero.webp" alt="Imperfect Machine Hero Visual">
-    <div class="hero-vignette"></div>
-  </div>
-
-  <div class="hero-overlay">
-    <img class="hero-logo" src="2.png" alt="Imperfect Machine Logo">
-    <div class="tagline">Half human. Half machine. Still fully broken.</div>
-
-    <div class="hero-actions">
-      <a class="hero-btn" href="https://open.spotify.com/track/082Gi6kYbxDZ1kRngBbypp" target="_blank" rel="noopener">Spotify</a>
-      <a class="hero-btn" href="https://music.apple.com/us/album/the-nothing-feat-dead-echoes/1869820156?i=1869820157" target="_blank" rel="noopener">Apple Music</a>
-      <a class="hero-btn" href="#music">Now Playing</a>
-    </div>
-  </div>
-</section>
+</header>
 
 <section id="music" class="section">
   <h2>Now Playing</h2>
