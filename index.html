@@ -7,10 +7,11 @@
 
 <style>
 :root{
-  --accent:#63e0ff;
-  --text:#f4f6ff;
-  --muted:#9aa0c2;
-  --border:#1b1f2b;
+  --text:#f1f1f5;
+  --muted:#9a9ca8;
+  --border:#1a1c25;
+  --bg-dark:#06070d;
+  --bg-mid:#0c0f18;
 }
 
 /* RESET */
@@ -23,14 +24,12 @@ body{
   line-height:1.6;
 
   background:
-    radial-gradient(circle at 20% 10%, rgba(99,224,255,0.08), transparent 45%),
-    radial-gradient(circle at 80% 30%, rgba(255,0,100,0.06), transparent 55%),
-    radial-gradient(circle at 50% 90%, rgba(120,120,255,0.05), transparent 60%),
-    linear-gradient(180deg, #06070e 0%, #0a0d18 50%, #05060c 100%);
-  background-attachment: fixed;
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.03), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.02), transparent 60%),
+    linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-mid) 50%, var(--bg-dark) 100%);
 }
 
-/* Subtle Grain */
+/* Subtle texture */
 body::before{
   content:"";
   position:fixed;
@@ -44,7 +43,20 @@ body::before{
       transparent 2px
     );
   pointer-events:none;
-  opacity:.25;
+  opacity:.2;
+}
+
+/* LINKS — neutral, not blue */
+a{
+  color:var(--text);
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,0.25);
+  transition:.2s;
+}
+
+a:hover{
+  border-bottom:1px solid var(--text);
+  opacity:.8;
 }
 
 /* HEADER */
@@ -52,7 +64,6 @@ header{
   padding:2.5rem 1.5rem 2rem;
   text-align:center;
   border-bottom:1px solid var(--border);
-  backdrop-filter: blur(6px);
 }
 
 header img{
@@ -77,11 +88,11 @@ nav a{
   padding:.4rem .9rem;
   border:1px solid var(--border);
   border-radius:999px;
-  transition:.2s;
+  border-bottom:none;
 }
 
 nav a:hover{
-  border-color:var(--accent);
+  background:rgba(255,255,255,0.05);
 }
 
 .social{
@@ -97,12 +108,11 @@ nav a:hover{
 }
 
 .social a{
-  color:var(--text);
+  border-bottom:none;
 }
 
 .social a:hover{
   opacity:1;
-  border-bottom:1px solid var(--accent);
 }
 
 /* HERO */
@@ -123,7 +133,6 @@ nav a:hover{
   font-size:3.2rem;
   letter-spacing:.1em;
   margin:.5rem 0;
-  text-shadow:0 0 20px rgba(99,224,255,.15);
 }
 
 .hero .cta{
@@ -140,26 +149,27 @@ nav a:hover{
   text-transform:uppercase;
   letter-spacing:.15em;
   font-size:.75rem;
-  border:1px solid var(--accent);
+  border:1px solid var(--text);
+  border-bottom:none;
   transition:.25s;
 }
 
 .btn.primary{
-  background:var(--accent);
+  background:var(--text);
   color:#000;
-}
-
-.btn.primary:hover{
-  box-shadow:0 0 18px rgba(99,224,255,.5);
 }
 
 .btn.secondary{
   border-color:var(--border);
 }
 
+.btn:hover{
+  opacity:.85;
+}
+
 /* SECTIONS */
 .container{
-  max-width:1100px;
+  max-width:1000px;
   margin:0 auto;
   padding:3rem 1.5rem;
 }
@@ -171,8 +181,8 @@ nav a:hover{
 .section h2{
   text-transform:uppercase;
   letter-spacing:.2em;
-  font-size:.85rem;
-  color:var(--accent);
+  font-size:.8rem;
+  color:var(--muted);
   margin-bottom:1.5rem;
 }
 
@@ -180,8 +190,7 @@ nav a:hover{
 .player iframe,
 .video iframe{
   width:100%;
-  border-radius:14px;
-  box-shadow:0 15px 40px rgba(0,0,0,.7);
+  border-radius:8px;
 }
 
 .player iframe{
@@ -218,7 +227,7 @@ footer{
 }
 
 @media(max-width:768px){
-  .hero h1{font-size:2.4rem}
+  .hero h1{font-size:2.3rem}
   .video iframe{min-height:240px}
 }
 </style>
@@ -287,9 +296,7 @@ footer{
 <section id="video" class="section video">
   <h2>Official Video</h2>
   <iframe src="https://www.youtube.com/embed/xJVYUJiZNvo"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
+    allowfullscreen></iframe>
 </section>
 
 <section id="news" class="section">
