@@ -151,9 +151,7 @@ h2{
   padding:0;
   margin:0;
 }
-.song-list li{
-  margin-bottom:.5rem;
-}
+.song-list li{margin-bottom:.5rem}
 
 .song-button{
   width:100%;
@@ -166,12 +164,8 @@ h2{
   font-size:.9rem;
   cursor:pointer;
 }
-.song-button:hover{
-  background:rgba(255,255,255,.05);
-}
-.song-button.active{
-  border-color:var(--text-main);
-}
+.song-button:hover{background:rgba(255,255,255,.05)}
+.song-button.active{border-color:var(--text-main)}
 
 .action-row{
   display:flex;
@@ -189,9 +183,7 @@ h2{
   font-size:.85rem;
   text-decoration:none;
 }
-.action-btn:hover{
-  background:rgba(255,255,255,.05);
-}
+.action-btn:hover{background:rgba(255,255,255,.05)}
 
 .spotify-embed{
   width:100%;
@@ -252,83 +244,176 @@ footer{
 <body>
 
 <header>
-<img src="2.png" alt="Imperfect Machine Logo">
-<p class="tagline">Choose a song to view lyrics and credits.</p>
-<nav>
-  <a href="index.html">Home</a>
-  <a href="index.html#music">Music</a>
-  <a href="index.html#video">Video</a>
-  <a href="lyrics.html">Lyrics</a>
-  <a href="index.html#about">About</a>
-</nav>
+  <img src="2.png" alt="Imperfect Machine Logo">
+  <p class="tagline">Choose a song to view lyrics and credits.</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#music">Music</a>
+    <a href="index.html#video">Video</a>
+    <a href="lyrics.html">Lyrics</a>
+    <a href="index.html#about">About</a>
+  </nav>
 </header>
 
 <main class="container">
-<section>
-<h2>Songs</h2>
-<p class="section-lead">Select a track to view its full lyrics and credits.</p>
+  <section>
+    <h2>Songs</h2>
+    <p class="section-lead">Select a track to view its full lyrics and credits.</p>
 
-<div class="grid grid-2">
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 style="margin-top:0;">Tracklist</h3>
+        <ul class="song-list">
+          <li><button class="song-button active" data-song-id="the-nothing">The Nothing (feat. Dead Echoes)</button></li>
+          <li><button class="song-button" data-song-id="into-the-night">Into The Night (feat. Dead Echoes)</button></li>
+          <li><button class="song-button" data-song-id="dont-count-on-me">Don’t Count On Me (feat. Dead Echoes)</button></li>
+        </ul>
+      </div>
 
-<div class="card">
-<h3 style="margin-top:0;">Tracklist</h3>
-<ul class="song-list">
-<li><button class="song-button active" data-song-id="into-the-night">Into The Night (feat. Dead Echoes)</button></li>
-<li><button class="song-button" data-song-id="dont-count-on-me">Don’t Count On Me (feat. Dead Echoes)</button></li>
-</ul>
-</div>
+      <div id="songDetail" class="card">
+        <h3 id="songTitle" style="margin-top:0;"></h3>
 
-<div id="songDetail" class="card">
-<h3 id="songTitle" style="margin-top:0;"></h3>
-<div class="action-row" id="songLinks"></div>
-<iframe id="spotifyEmbed" class="spotify-embed" src="" loading="lazy"
-allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <div class="action-row" id="songLinks"></div>
 
-<h4>Credits</h4>
-<ul id="creditsList" class="credits-list"></ul>
+        <iframe id="spotifyEmbed" class="spotify-embed" src="" loading="lazy"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-<h4>Lyrics</h4>
-<pre id="lyricsBox" class="lyrics-box"></pre>
-</div>
+        <h4>Credits</h4>
+        <ul id="creditsList" class="credits-list"></ul>
 
-</div>
-</section>
+        <h4>Lyrics</h4>
+        <pre id="lyricsBox" class="lyrics-box"></pre>
+      </div>
+    </div>
+  </section>
 </main>
 
-<button id="themeToggle" class="theme-toggle">☾</button>
+<button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark or light mode">☾</button>
 
 <footer>
-&copy; <span id="year"></span> Imperfect Machine. All rights reserved.
+  &copy; <span id="year"></span> Imperfect Machine. All rights reserved.
 </footer>
 
 <script>
 (function(){
-const root=document.documentElement;
-const stored=localStorage.getItem('imperfect-theme');
-root.setAttribute('data-theme',stored||'dark');
-document.getElementById('themeToggle').onclick=function(){
-const current=root.getAttribute('data-theme');
-const next=current==='dark'?'light':'dark';
-root.setAttribute('data-theme',next);
-localStorage.setItem('imperfect-theme',next);
-};
-document.getElementById('year').textContent=new Date().getFullYear();
+  const root = document.documentElement;
+  const stored = localStorage.getItem('imperfect-theme');
+  const initial = (stored === 'light' || stored === 'dark') ? stored : 'dark';
+  root.setAttribute('data-theme', initial);
+
+  const btn = document.getElementById('themeToggle');
+  function updateToggle(){
+    const current = root.getAttribute('data-theme') || 'dark';
+    btn.textContent = current === 'dark' ? '☾' : '☼';
+    btn.setAttribute('aria-label', current === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+  updateToggle();
+
+  btn.addEventListener('click', function(){
+    const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('imperfect-theme', next);
+    updateToggle();
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
 })();
 
-const songs={
-"into-the-night":{
-title:"Into The Night (feat. Dead Echoes)",
-spotify:"https://open.spotify.com/track/2HLkJVvWlfhSoV6GYDiDds",
-spotifyEmbed:"https://open.spotify.com/embed/track/2HLkJVvWlfhSoV6GYDiDds",
-apple:"https://music.apple.com/us/album/into-the-night-feat-dead-echoes/1861223150?i=1861223151",
-youtube:"https://youtu.be/xJVYUJiZNvo",
-credits:[
-"Written By: Matthew Smith",
-"Performed By: Matthew Smith & Bryan Coulter",
-"Produced By: Matthew Smith & Imperfect Machine (AI-Assisted)",
-"Mastered By: David Sayago"
-],
-lyrics:`VERSE 1:
+const baseCredits = [
+  "Written By: Matthew Smith",
+  "Performed By: Matthew Smith & Bryan Coulter",
+  "Produced By: Matthew Smith & Imperfect Machine (AI-Assisted)",
+  "Mastered By: David Sayago"
+];
+
+const songs = {
+  "the-nothing": {
+    title: "The Nothing (feat. Dead Echoes)",
+    spotify: "https://open.spotify.com/track/082Gi6kYbxDZ1kRngBbypp",
+    spotifyEmbed: "https://open.spotify.com/embed/track/082Gi6kYbxDZ1kRngBbypp",
+    apple: "https://music.apple.com/us/album/the-nothing-feat-dead-echoes/1869820156?i=1869820157",
+    youtube: "https://youtu.be/xJVYUJiZNvo?si=xmBEGJ47qmkRxlTP",
+    credits: baseCredits,
+    lyrics: `VERSE 1:
+Your time is up
+You're so desperate to win
+But you're the kind of person
+Who can't even begin
+And oh no here's your story
+It's so boring
+I can't hear this
+I'd rather be dead
+
+PRECHORUS 1:
+You cry when shit happens
+Use children as weapons
+So proud that you hit girls
+A cancer to this world
+
+CHORUS:
+You're a nothing
+You try to sell us on your bullshit and all your lies
+You're a nothing
+Your life is pointless, so I don't know why I'm surprised
+You're a nothing
+
+VERSE 2:
+Can't deal with life
+Yes, we already know
+But why does a mother fucker
+Need to put on a show
+Ok so here's your warning
+Please avoid me
+You're annoying
+What more can be said?
+
+PRECHORUS 2:
+You don't work, you're lazy
+Drive everyone crazy
+You live in denial
+And act suicidal
+Just let go, just let go
+Just let go, just let go
+
+CHORUS:
+You're a nothing
+You try to sell us on your bullshit and all your lies
+You're a nothing
+Your life is pointless, so I don't know why I'm surprised
+You're a nothing
+
+BRIDGE:
+You're a joke
+You'll never change
+You're just a deadbeat
+Stay in your lane
+
+You're a nothing
+You're a nothing
+You're a nothing
+You're a nothing
+You're a nothing
+You're a nothing
+You're a nothing
+
+CHORUS:
+You're a nothing
+You try to sell us on your bullshit and all your lies
+You're a nothing
+Your life is pointless, so I don't know why I'm surprised
+You're a nothing
+You're a nothing`
+  },
+
+  "into-the-night": {
+    title: "Into The Night (feat. Dead Echoes)",
+    spotify: "https://open.spotify.com/track/2HLkJVvWlfhSoV6GYDiDds?si=uEtAMcWdQTatpP2XLaMrHg&context=spotify%3Aplaylist%3A37i9dQZEVXbjHsuKJnQaXC",
+    spotifyEmbed: "https://open.spotify.com/embed/track/2HLkJVvWlfhSoV6GYDiDds",
+    apple: "https://music.apple.com/us/album/into-the-night-feat-dead-echoes/1861223150?i=1861223151",
+    youtube: "https://youtu.be/xJVYUJiZNvo?si=xmBEGJ47qmkRxlTP",
+    credits: baseCredits,
+    lyrics: `VERSE 1:
 My limbs are frozen 
 A body without a soul 
 Another hopeless surrender
@@ -372,21 +457,16 @@ Into the darkness where I can’t breathe
 Into the night 
 Into the storm that’s inside of me 
 Into the night`
-},
+  },
 
-"dont-count-on-me":{
-title:"Don’t Count On Me (feat. Dead Echoes)",
-spotify:"https://open.spotify.com/track/0Tl3yFExWqU5zwJQcF3nAb",
-spotifyEmbed:"https://open.spotify.com/embed/track/0Tl3yFExWqU5zwJQcF3nAb",
-apple:"https://music.apple.com/us/album/dont-count-on-me-feat-dead-echoes/1857400042?i=1857400043",
-youtube:"https://youtu.be/VgYaynOu25k",
-credits:[
-"Written By: Matthew Smith",
-"Performed By: Matthew Smith & Bryan Coulter",
-"Produced By: Matthew Smith & Imperfect Machine (AI-Assisted)",
-"Mastered By: David Sayago"
-],
-lyrics:`VERSE 1:
+  "dont-count-on-me": {
+    title: "Don’t Count On Me (feat. Dead Echoes)",
+    spotify: "https://open.spotify.com/track/0Tl3yFExWqU5zwJQcF3nAb?si=fC1wJzFnQ8CI4OVCgmCNKg&context=spotify%3Aalbum%3A0N7R9Nw2RG0chBRPU5gsDB",
+    spotifyEmbed: "https://open.spotify.com/embed/track/0Tl3yFExWqU5zwJQcF3nAb",
+    apple: "https://music.apple.com/us/album/dont-count-on-me-feat-dead-echoes/1857400042?i=1857400043",
+    youtube: "https://youtu.be/VgYaynOu25k?si=xToHVs2j9PVtWMyK",
+    credits: baseCredits,
+    lyrics: `VERSE 1:
 We built our love in this life we made 
 Felt good with everything 
 Then we got hit with a sudden change 
@@ -451,30 +531,40 @@ OUTRO:
 Don’t count on me
 Don’t count on me
 Don’t count on me`
-}
+  }
 };
 
 function renderSong(id){
-const song=songs[id];
-if(!song)return;
-document.getElementById('songTitle').textContent=song.title;
-document.getElementById('spotifyEmbed').src=song.spotifyEmbed;
-document.getElementById('creditsList').innerHTML=song.credits.map(c=>`<li>${c}</li>`).join("");
-document.getElementById('lyricsBox').textContent=song.lyrics;
-document.getElementById('songLinks').innerHTML=
-`<a class="action-btn" href="${song.spotify}" target="_blank">Spotify</a>
-<a class="action-btn" href="${song.apple}" target="_blank">Apple Music</a>
-<a class="action-btn" href="${song.youtube}" target="_blank">YouTube</a>`;
-document.querySelectorAll('.song-button').forEach(btn=>{
-btn.classList.toggle('active',btn.dataset.songId===id);
-});
+  const song = songs[id];
+  if(!song) return;
+
+  document.getElementById('songTitle').textContent = song.title;
+  document.getElementById('spotifyEmbed').src = song.spotifyEmbed;
+
+  document.getElementById('creditsList').innerHTML =
+    song.credits.map(c => `<li>${c}</li>`).join("");
+
+  document.getElementById('lyricsBox').textContent = song.lyrics;
+
+  document.getElementById('songLinks').innerHTML = `
+    <a class="action-btn" href="${song.spotify}" target="_blank" rel="noopener">Spotify</a>
+    <a class="action-btn" href="${song.apple}" target="_blank" rel="noopener">Apple Music</a>
+    <a class="action-btn" href="${song.youtube}" target="_blank" rel="noopener">YouTube</a>
+  `;
+
+  document.querySelectorAll('.song-button').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.songId === id);
+  });
 }
 
-document.addEventListener('DOMContentLoaded',()=>{
-document.querySelectorAll('.song-button').forEach(btn=>{
-btn.onclick=()=>renderSong(btn.dataset.songId);
-});
-renderSong('into-the-night');
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.song-button').forEach(btn=>{
+    btn.addEventListener('click', function(){
+      renderSong(this.dataset.songId);
+    });
+  });
+
+  renderSong('the-nothing');
 });
 </script>
 
