@@ -67,11 +67,12 @@ a:hover{
   opacity:.85;
 }
 
-/* TOP HERO IMAGE (no overlay) */
+/* TOP HERO IMAGE ONLY (smaller, full-width banner) */
 .hero-top{
   width:100%;
-  height:min(68vh, 720px);
-  min-height:360px;
+  height:38vh;          /* smaller so nav shows on load */
+  max-height:380px;     /* prevents being too tall on desktop */
+  min-height:220px;     /* keeps presence on small screens */
   overflow:hidden;
   border-bottom:1px solid var(--border);
   background:#000;
@@ -79,26 +80,26 @@ a:hover{
 .hero-top img{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:cover;     /* full width, no stretching */
   display:block;
 }
 
 /* HEADER STACK (logo -> tagline -> nav) */
 header{
   text-align:center;
-  padding:2.4rem 1.2rem 1.8rem;
+  padding:1.9rem 1.2rem 1.4rem;
   border-bottom:1px solid var(--border);
 }
 
 header img.logo{
-  width:min(280px, 75vw);
+  width:min(260px, 74vw);
   height:auto;
   display:block;
   margin:0 auto;
 }
 
 .tagline{
-  margin:1rem auto 0;
+  margin:0.85rem auto 0;
   max-width:720px;
   color:var(--text-muted);
   font-size:.95rem;
@@ -106,7 +107,7 @@ header img.logo{
 }
 
 nav{
-  margin:1.4rem auto 0;
+  margin:1.2rem auto 0;
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
@@ -132,7 +133,7 @@ nav a:hover{
 .section{
   max-width:1100px;
   margin:0 auto;
-  padding:3.2rem 1.5rem;
+  padding:3.0rem 1.5rem;
 }
 
 .section h2{
@@ -164,24 +165,35 @@ iframe{
   background:#000;
 }
 
-/* streaming buttons */
+/* streaming buttons — single neat row */
 .stream-row{
-  margin-top:1.2rem;
+  margin-top:1.1rem;
   display:flex;
-  gap:1rem;
-  flex-wrap:wrap;
+  gap:.8rem;
+  flex-wrap:nowrap;          /* force one row */
+  align-items:center;
 }
+
 .stream-btn{
-  padding:.6rem 1.1rem;
+  flex:1;                    /* equal widths */
+  text-align:center;
+  padding:.62rem .9rem;
   border-radius:999px;
   border:1px solid var(--border);
   border-bottom:none;
   font-size:.85rem;
   background:transparent;
   transition:.2s ease;
+  white-space:nowrap;
 }
 .stream-btn:hover{
   background:rgba(255,255,255,.06);
+}
+
+/* On very small screens, allow wrap to avoid overflow */
+@media (max-width: 420px){
+  .stream-row{ flex-wrap:wrap; }
+  .stream-btn{ flex:unset; width:100%; }
 }
 
 /* NEWS */
@@ -284,14 +296,12 @@ footer{
 
 <body>
 
-<!-- 1) TOP HERO IMAGE ONLY -->
+<!-- TOP HERO IMAGE ONLY -->
 <section class="hero-top" id="top">
   <img src="hero.webp" alt="Imperfect Machine Hero Visual">
 </section>
 
-<!-- 2) LOGO -->
-<!-- 3) TAGLINE -->
-<!-- 4) NAV -->
+<!-- LOGO -> TAGLINE -> NAV -->
 <header>
   <img class="logo" src="2.png" alt="Imperfect Machine Logo">
   <div class="tagline">Half human. Half machine. Still fully broken.</div>
