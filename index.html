@@ -1,274 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IMPΞRFECT MACH1NE | Official Site</title>
+<title>Imperfect Machine</title>
+<meta name="description" content="Hard rock / alternative metal project Imperfect Machine. Half human. Half machine. Still fully broken.">
 
 <style>
 :root{
-  --text:#f1f1f5;
-  --muted:#9a9ca8;
+  --text-main:#f1f1f5;
+  --text-muted:#9a9ca8;
   --border:#1a1c25;
   --bg-dark:#06070d;
   --bg-mid:#0c0f18;
+  --card:#0f111a;
+  --bg-soft:#111320;
 }
 
-/* RESET */
+[data-theme="light"]{
+  --text-main:#111322;
+  --text-muted:#5a5e7a;
+  --border:#d2d6ea;
+  --bg-dark:#f4f4fb;
+  --bg-mid:#ffffff;
+  --card:#ffffff;
+  --bg-soft:#f4f6ff;
+}
+
 *{box-sizing:border-box}
 
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  color:var(--text);
-  line-height:1.6;
-  scroll-behavior:smooth;
-
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text-main);
   background:
     radial-gradient(circle at 30% 20%, rgba(255,255,255,0.03), transparent 60%),
     radial-gradient(circle at 80% 70%, rgba(255,255,255,0.02), transparent 60%),
-    linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-mid) 50%, var(--bg-dark) 100%);
+    linear-gradient(180deg,var(--bg-dark) 0%,var(--bg-mid) 50%,var(--bg-dark) 100%);
 }
 
-/* subtle texture */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,0.015) 0px,
-      rgba(255,255,255,0.015) 1px,
-      transparent 1px,
-      transparent 2px
-    );
-  pointer-events:none;
-  opacity:.2;
-}
-
-/* LINKS */
 a{
-  color:var(--text);
+  color:var(--text-main);
   text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,0.25);
-  transition:.2s;
+  border-bottom:1px solid rgba(255,255,255,.25);
 }
+a:hover{opacity:.8}
 
-a:hover{
-  border-bottom:1px solid var(--text);
-  opacity:.8;
-}
-
-/* HEADER */
 header{
-  padding:2.5rem 1.5rem 2rem;
   text-align:center;
+  padding:2.5rem 1rem 1.5rem;
   border-bottom:1px solid var(--border);
 }
 
 header img{
-  max-width:260px;
-  width:85%;
-  margin:0 auto 1rem;
-  display:block;
+  max-width:220px;
+  width:70%;
+  height:auto;
+}
+
+.tagline{
+  margin-top:1rem;
+  font-size:.9rem;
+  color:var(--text-muted);
 }
 
 nav{
-  margin-top:1rem;
+  margin-top:1.5rem;
   display:flex;
   justify-content:center;
-  gap:1rem;
   flex-wrap:wrap;
+  gap:.75rem;
 }
 
 nav a{
-  font-size:.75rem;
-  text-transform:uppercase;
-  letter-spacing:.15em;
   padding:.4rem .9rem;
+  border-radius:999px;
   border:1px solid var(--border);
-  border-radius:999px;
-  border-bottom:none;
-}
-
-nav a:hover{
-  background:rgba(255,255,255,0.05);
-}
-
-.social{
-  margin-top:1.2rem;
-  display:flex;
-  justify-content:center;
-  gap:1.2rem;
-  flex-wrap:wrap;
   font-size:.75rem;
   text-transform:uppercase;
   letter-spacing:.15em;
-  opacity:.7;
-}
-
-.social a{
   border-bottom:none;
 }
+nav a:hover{background:rgba(255,255,255,.05)}
 
-.social a:hover{
-  opacity:1;
-}
-
-/* HERO */
-.hero{
-  text-align:center;
-  padding:6rem 1.5rem;
-  border-bottom:1px solid var(--border);
-}
-
-.hero .sub{
-  color:var(--muted);
-  text-transform:uppercase;
-  letter-spacing:.25em;
-  font-size:.8rem;
-}
-
-.hero h1{
-  font-size:3.2rem;
-  letter-spacing:.1em;
-  margin:.5rem 0;
-}
-
-.hero .cta{
-  margin-top:2rem;
+.hero-split{
   display:flex;
-  justify-content:center;
-  gap:1rem;
-  flex-wrap:wrap;
+  gap:2.5rem;
+  align-items:center;
+  justify-content:space-between;
+  text-align:left;
+  max-width:1100px;
+  margin:0 auto;
+  padding:4rem 1.5rem 3rem;
 }
 
+.hero-copy{flex:1.1;min-width:260px}
+.hero-copy h1{font-size:2.4rem;margin:.5rem 0}
+
+.hero-media{
+  flex:.9;
+  max-width:480px;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:0 25px 60px rgba(0,0,0,.6);
+}
+.hero-media img{width:100%;display:block}
+
+.cta{margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap}
 .btn{
-  padding:.85rem 1.7rem;
+  padding:.6rem 1rem;
   border-radius:999px;
-  text-transform:uppercase;
-  letter-spacing:.15em;
-  font-size:.75rem;
-  border:1px solid var(--text);
-  border-bottom:none;
-  transition:.25s;
+  border:1px solid var(--border);
+  font-size:.85rem;
 }
+.btn:hover{background:rgba(255,255,255,.05)}
 
-.btn.primary{
-  background:var(--text);
-  color:#000;
-}
-
-.btn.secondary{
-  border-color:var(--border);
-}
-
-.btn:hover{
-  opacity:.85;
-}
-
-/* LAYOUT */
-.container{
-  max-width:1000px;
+.section{
+  max-width:1100px;
   margin:0 auto;
   padding:3rem 1.5rem;
 }
 
-.section{
-  margin-top:4rem;
-}
-
-.section h2{
-  text-transform:uppercase;
-  letter-spacing:.2em;
-  font-size:.8rem;
-  color:var(--muted);
-  margin-bottom:1.5rem;
-}
-
-/* PLAYER */
-.player iframe,
-.video iframe{
-  width:100%;
-  border-radius:8px;
-}
-
-.player iframe{min-height:152px}
-.video iframe{min-height:360px}
-
-/* STREAMING */
-.streaming-list p{
-  margin-bottom:1.5rem;
-}
-
-/* NEWS */
-.news-item{
-  border-bottom:1px solid var(--border);
-  padding-bottom:1.2rem;
-  margin-bottom:1.2rem;
-}
-
-.news-item:last-child{
-  border-bottom:none;
-}
-
-/* ABOUT */
-.about-text{
-  max-width:720px;
-  margin:0 auto;
-  font-size:.95rem;
-  color:var(--muted);
-}
-
-.about-text p{
-  margin-bottom:1.4rem;
-}
-
-/* BACK TO TOP BUTTON */
-#backToTop{
-  position:fixed;
-  bottom:30px;
-  right:30px;
-  width:42px;
-  height:42px;
-  border-radius:50%;
+.card{
+  background:var(--card);
+  padding:1.5rem;
+  border-radius:12px;
   border:1px solid var(--border);
-  background:rgba(20,22,30,0.9);
-  color:var(--text);
-  font-size:18px;
-  cursor:pointer;
+  margin-bottom:1.5rem;
+}
+
+iframe{
+  width:100%;
+  border-radius:12px;
+  border:0;
+}
+
+.social-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.social-list li{margin-bottom:.5rem}
+
+footer{
+  text-align:center;
+  padding:2rem 1rem;
+  font-size:.8rem;
+  color:var(--text-muted);
+  border-top:1px solid var(--border);
+}
+
+.theme-toggle, .back-to-top{
+  position:fixed;
+  right:1.5rem;
+  width:2.6rem;
+  height:2.6rem;
+  border-radius:999px;
+  border:1px solid var(--border);
   display:flex;
   align-items:center;
   justify-content:center;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .3s ease, transform .3s ease;
+  cursor:pointer;
+  background:rgba(20,22,30,.9);
 }
 
-#backToTop:hover{
-  background:rgba(255,255,255,0.08);
-}
+.theme-toggle{bottom:1.5rem}
+.back-to-top{bottom:4.8rem}
 
-#backToTop.show{
-  opacity:1;
-  pointer-events:auto;
-  transform:translateY(0);
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:3rem 1rem;
-  font-size:.75rem;
-  color:var(--muted);
-  border-top:1px solid var(--border);
-  margin-top:4rem;
-}
-
-@media(max-width:768px){
-  .hero h1{font-size:2.3rem}
-  .video iframe{min-height:240px}
+@media(max-width:900px){
+  .hero-split{flex-direction:column;text-align:center}
 }
 </style>
 </head>
@@ -276,141 +177,97 @@ footer{
 <body>
 
 <header>
-  <img src="2.png" alt="Imperfect Machine Logo">
+<img src="2.png" alt="Imperfect Machine Logo">
+<div class="tagline">Half human. Half machine. Still fully broken.</div>
 
-  <nav>
-    <a href="#music">Music</a>
-    <a href="#video">Video</a>
-    <a href="#news">News</a>
-    <a href="#about">About</a>
-    <a href="lyrics.html">Lyrics</a>
-  </nav>
-
-  <div class="social">
-    <a href="https://www.facebook.com/imperfectmachine" target="_blank">Facebook</a>
-    <a href="https://www.instagram.com/imperfectmachineofficial" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/@imperfect.machine" target="_blank">TikTok</a>
-    <a href="https://youtube.com/@imperfectmachineofficial" target="_blank">YouTube</a>
-    <a href="https://x.com/1mprfctmchn3" target="_blank">X / Twitter</a>
-  </div>
+<nav>
+<a href="#music">Music</a>
+<a href="#video">Video</a>
+<a href="lyrics.html">Lyrics</a>
+<a href="#about">About</a>
+</nav>
 </header>
 
-<section class="hero">
-  <div class="sub">Out Now</div>
-  <h1>THE NOTHING</h1>
-  <div class="sub">feat. Dead Echoes</div>
+<section class="hero-split">
 
-  <div class="cta">
-    <a class="btn primary" href="https://open.spotify.com/track/082Gi6kYbxDZ1kRngBbypp" target="_blank">Listen Now</a>
-    <a class="btn secondary" href="https://music.apple.com/us/album/the-nothing-feat-dead-echoes/1869820156?i=1869820157" target="_blank">Apple Music</a>
-  </div>
+<div class="hero-copy">
+<div class="sub">Out Now</div>
+<h1>The Nothing</h1>
+<div class="sub">feat. Dead Echoes</div>
+
+<div class="cta">
+<a class="btn" href="https://open.spotify.com/track/082Gi6kYbxDZ1kRngBbypp" target="_blank">Spotify</a>
+<a class="btn" href="https://music.apple.com/us/album/the-nothing-feat-dead-echoes/1869820156?i=1869820157" target="_blank">Apple Music</a>
+</div>
+</div>
+
+<div class="hero-media">
+<img src="hero.webp" alt="Imperfect Machine Visual">
+</div>
+
 </section>
 
-<div class="container">
+<section id="music" class="section">
+<h2>Now Playing</h2>
+<div class="card">
+<iframe src="https://open.spotify.com/embed/track/082Gi6kYbxDZ1kRngBbypp" height="152" loading="lazy"></iframe>
+</div>
 
-<section id="music" class="section player">
-  <h2>Now Playing</h2>
-  <iframe src="https://open.spotify.com/embed/track/082Gi6kYbxDZ1kRngBbypp"
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-  </iframe>
+<h2>Out Now</h2>
+<div class="card">
+<p>The Nothing (feat. Dead Echoes)</p>
+<p>Into The Night (feat. Dead Echoes)</p>
+<p>Don’t Count On Me (feat. Dead Echoes)</p>
+</div>
 </section>
 
-<section class="section streaming-list">
-  <h2>Out Now</h2>
-
-  <p><strong>The Nothing</strong><br>
-    <a href="https://open.spotify.com/track/082Gi6kYbxDZ1kRngBbypp" target="_blank">Spotify</a> |
-    <a href="https://music.apple.com/us/album/the-nothing-feat-dead-echoes/1869820156?i=1869820157" target="_blank">Apple Music</a>
-  </p>
-
-  <p><strong>Into The Night</strong><br>
-    <a href="https://open.spotify.com/track/2HLkJVvWlfhSoV6GYDiDds" target="_blank">Spotify</a> |
-    <a href="https://music.apple.com/us/album/into-the-night-feat-dead-echoes/1861223150?i=1861223151" target="_blank">Apple Music</a>
-  </p>
-
-  <p><strong>Don’t Count On Me</strong><br>
-    <a href="https://open.spotify.com/track/0Tl3yFExWqU5zwJQcF3nAb" target="_blank">Spotify</a> |
-    <a href="https://music.apple.com/us/album/dont-count-on-me-feat-dead-echoes/1857400042?i=1857400043" target="_blank">Apple Music</a>
-  </p>
-</section>
-
-<section id="video" class="section video">
-  <h2>Official Video</h2>
-  <iframe src="https://www.youtube.com/embed/xJVYUJiZNvo" allowfullscreen></iframe>
-</section>
-
-<section id="news" class="section">
-  <h2>Latest</h2>
-
-  <div class="news-item">
-    <strong>The Nothing — Out Now</strong>
-    Streaming everywhere.
-  </div>
-
-  <div class="news-item">
-    <strong>Into The Night — Out Now</strong>
-    Available on all major platforms.
-  </div>
-
-  <div class="news-item">
-    <strong>Don’t Count On Me — Out Now</strong>
-    Official lyric video available.
-  </div>
+<section id="video" class="section">
+<h2>Featured Video</h2>
+<div class="card">
+<iframe height="500" src="https://www.youtube.com/embed/xJVYUJiZNvo" allowfullscreen></iframe>
+</div>
 </section>
 
 <section id="about" class="section">
-  <h2>About</h2>
-
-  <div class="about-text">
-    <p>
-      Imperfect Machine (IMPΞRFECT MACH1NE) is a hard rock / alternative metal project built around
-      the evolution between human emotion and machine precision.
-    </p>
-
-    <p>
-      Every song begins with a human — written, performed, and recorded in a real room.
-      The material is then processed through modern production tools and AI-assisted workflows,
-      before being brought back to human hands for mastering and final validation.
-    </p>
-
-    <p>
-      The result is heavy, atmospheric, guitar-driven music shaped by both instinct and technology —
-      a present-day collaboration between creator and machine.
-    </p>
-
-    <p>
-      Contact:
-      <a href="mailto:ImperfectMachineOfficial@gmail.com">
-        ImperfectMachineOfficial@gmail.com
-      </a>
-    </p>
-  </div>
-</section>
-
+<h2>About</h2>
+<div class="card">
+<p>Imperfect Machine is a hard rock / alternative metal project exploring the collision between human emotion and machine precision. Songs are written, performed, and recorded by a human before being shaped through machine-assisted production, then returned to human hands for final mastering and validation.</p>
 </div>
 
-<button id="backToTop" aria-label="Back to top">↑</button>
+<h2>Connect</h2>
+<div class="card">
+<ul class="social-list">
+<li><a href="https://open.spotify.com/artist/3w9C6r1oXYCUeVQ4KodfOc" target="_blank">Spotify</a></li>
+<li><a href="https://music.apple.com/us/artist/imperfect-machine/1857270493" target="_blank">Apple Music</a></li>
+<li><a href="https://www.facebook.com/imperfectmachine" target="_blank">Facebook</a></li>
+<li><a href="https://www.instagram.com/imperfectmachineofficial" target="_blank">Instagram</a></li>
+<li><a href="https://x.com/1mprfctmchn3" target="_blank">X / Twitter</a></li>
+<li><a href="https://youtube.com/@imperfectmachineofficial" target="_blank">YouTube</a></li>
+<li><a href="https://www.tiktok.com/@imperfect.machine" target="_blank">TikTok</a></li>
+</ul>
+</div>
+</section>
 
 <footer>
-  &copy; <span id="year"></span> Imperfect Machine
+&copy; <span id="year"></span> Imperfect Machine. All rights reserved.
 </footer>
 
+<button class="theme-toggle" onclick="toggleTheme()">☾</button>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
 <script>
+function toggleTheme(){
+const root=document.documentElement;
+const next=root.getAttribute('data-theme')==='light'?'dark':'light';
+root.setAttribute('data-theme',next);
+localStorage.setItem('imperfect-theme',next);
+}
+
+(function(){
+const stored=localStorage.getItem('imperfect-theme');
+if(stored){document.documentElement.setAttribute('data-theme',stored);}
 document.getElementById('year').textContent=new Date().getFullYear();
-
-const backToTop = document.getElementById("backToTop");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 400) {
-    backToTop.classList.add("show");
-  } else {
-    backToTop.classList.remove("show");
-  }
-});
-
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+})();
 </script>
 
 </body>
