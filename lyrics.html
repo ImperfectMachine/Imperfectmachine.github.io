@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
+<title>Imperfect Machine | Lyrics</title>
+<meta name="description" content="Lyrics and song credits for Imperfect Machine (IMPΞRFECT MACH1NE).">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IMPΞRFECT MACH1NE | Lyrics</title>
 
 <style>
 :root{
-  --text:#f1f1f5;
-  --muted:#9a9ca8;
+  --text-main:#f1f1f5;
+  --text-muted:#9a9ca8;
   --border:#1a1c25;
   --bg-dark:#06070d;
   --bg-mid:#0c0f18;
+  --card:#0f111a;
+  --bg-soft:#111320;
+}
+
+[data-theme="light"]{
+  --text-main:#111322;
+  --text-muted:#5a5e7a;
+  --border:#d2d6ea;
+  --bg-dark:#f4f4fb;
+  --bg-mid:#ffffff;
+  --card:#ffffff;
+  --bg-soft:#f4f6ff;
 }
 
 *{box-sizing:border-box}
 
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  color:var(--text);
-  line-height:1.7;
-  scroll-behavior:smooth;
-
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text-main);
+  line-height:1.6;
   background:
     radial-gradient(circle at 30% 20%, rgba(255,255,255,0.03), transparent 60%),
     radial-gradient(circle at 80% 70%, rgba(255,255,255,0.02), transparent 60%),
-    linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-mid) 50%, var(--bg-dark) 100%);
+    linear-gradient(180deg,var(--bg-dark) 0%,var(--bg-mid) 50%,var(--bg-dark) 100%);
 }
 
 body::before{
@@ -45,141 +56,195 @@ body::before{
   opacity:.2;
 }
 
-/* LINKS */
 a{
-  color:var(--text);
+  color:var(--text-main);
   text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,0.25);
+  border-bottom:1px solid rgba(255,255,255,.25);
   transition:.2s;
 }
-
 a:hover{
-  border-bottom:1px solid var(--text);
+  border-bottom:1px solid var(--text-main);
   opacity:.8;
 }
 
-/* HEADER */
 header{
-  padding:2.5rem 1.5rem 2rem;
+  padding:3rem 1.5rem 2rem;
   text-align:center;
   border-bottom:1px solid var(--border);
 }
 
 header img{
-  max-width:240px;
-  width:85%;
-  margin:0 auto 1rem;
+  max-width:220px;
+  width:70%;
+  height:auto;
+  margin:0 auto;
   display:block;
 }
 
+.tagline{
+  margin:.8rem auto 0;
+  font-size:.9rem;
+  color:var(--text-muted);
+}
+
 nav{
-  margin-top:1rem;
+  margin-top:1.4rem;
   display:flex;
   justify-content:center;
-  gap:1rem;
   flex-wrap:wrap;
+  gap:.75rem;
 }
 
 nav a{
-  font-size:.75rem;
-  text-transform:uppercase;
-  letter-spacing:.15em;
-  padding:.4rem .9rem;
-  border:1px solid var(--border);
+  padding:.35rem .9rem;
   border-radius:999px;
-  border-bottom:none;
-}
-
-nav a:hover{
-  background:rgba(255,255,255,0.05);
-}
-
-/* LAYOUT */
-.container{
-  max-width:800px;
-  margin:0 auto;
-  padding:3rem 1.5rem;
-}
-
-h1{
-  text-align:center;
-  font-size:2.4rem;
-  letter-spacing:.1em;
-  margin-bottom:2rem;
-}
-
-.song-nav{
-  text-align:center;
-  margin-bottom:3rem;
-  font-size:.9rem;
-}
-
-.song-nav a{
-  margin:0 .6rem;
-  border-bottom:none;
-  opacity:.7;
-}
-
-.song-nav a:hover{
-  opacity:1;
-}
-
-.song{
-  margin-bottom:4rem;
-}
-
-.song h2{
+  border:1px solid var(--border);
   text-transform:uppercase;
-  letter-spacing:.2em;
-  font-size:.85rem;
-  color:var(--muted);
-  margin-bottom:1.5rem;
+  font-size:.75rem;
+  letter-spacing:.15em;
+  border-bottom:none;
+}
+nav a:hover{
+  background:rgba(255,255,255,.05);
 }
 
-.lyrics{
-  white-space:pre-line;
+.container{
+  max-width:1040px;
+  margin:0 auto;
+  padding:2.5rem 1.5rem 4rem;
+}
+
+h2{
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:.9rem;
+  color:var(--text-muted);
+  margin-bottom:.75rem;
+}
+
+.section-lead{
+  color:var(--text-muted);
   font-size:.95rem;
-  color:var(--text);
+  max-width:740px;
 }
 
-.credits{
-  margin-top:2rem;
+.grid{
+  display:grid;
+  gap:1.5rem;
+}
+@media(min-width:768px){
+  .grid-2{
+    grid-template-columns:.9fr 1.6fr;
+  }
+}
+
+.card{
+  background:var(--card);
+  padding:1.4rem 1.5rem;
+  border-radius:12px;
+  border:1px solid var(--border);
+  box-shadow:0 14px 35px rgba(0,0,0,.6);
+}
+
+.song-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.song-list li{
+  margin-bottom:.5rem;
+}
+
+.song-button{
+  width:100%;
+  text-align:left;
+  padding:.55rem .75rem;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--bg-soft);
+  color:var(--text-main);
+  font-size:.9rem;
+  cursor:pointer;
+}
+.song-button:hover{
+  background:rgba(255,255,255,.05);
+}
+.song-button.active{
+  border-color:var(--text-main);
+}
+
+.action-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  margin:.3rem 0 1rem;
+}
+
+.action-btn{
+  padding:.55rem .9rem;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--text-main);
   font-size:.85rem;
-  color:var(--muted);
+  text-decoration:none;
+}
+.action-btn:hover{
+  background:rgba(255,255,255,.05);
+}
+
+.spotify-embed{
+  width:100%;
+  border:0;
+  border-radius:12px;
+  min-height:152px;
+  background:#000;
+  margin:0 0 1rem;
+}
+
+.credits-list{
+  list-style:none;
+  padding-left:0;
+  margin:.3rem 0 1rem;
+  font-size:.9rem;
+  color:var(--text-muted);
+}
+
+.lyrics-box{
+  background:var(--bg-soft);
+  border-radius:8px;
+  border:1px solid var(--border);
+  padding:1rem;
+  white-space:pre-wrap;
+  font-size:.9rem;
+  line-height:1.6;
 }
 
 footer{
   text-align:center;
-  padding:3rem 1rem;
   font-size:.75rem;
-  color:var(--muted);
+  color:var(--text-muted);
+  padding:2rem 1rem 2.6rem;
   border-top:1px solid var(--border);
 }
 
-/* BACK TO TOP */
-#backToTop{
+.theme-toggle{
   position:fixed;
-  bottom:30px;
-  right:30px;
-  width:42px;
-  height:42px;
-  border-radius:50%;
+  bottom:1.5rem;
+  right:1.5rem;
+  width:2.6rem;
+  height:2.6rem;
+  border-radius:999px;
   border:1px solid var(--border);
-  background:rgba(20,22,30,0.9);
-  color:var(--text);
-  font-size:18px;
-  cursor:pointer;
+  background:rgba(20,22,30,.9);
+  color:var(--text-main);
   display:flex;
   align-items:center;
   justify-content:center;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .3s ease;
-}
-
-#backToTop.show{
-  opacity:1;
-  pointer-events:auto;
+  font-size:1.2rem;
+  cursor:pointer;
+  box-shadow:0 14px 30px rgba(0,0,0,.7);
+  z-index:999;
 }
 </style>
 </head>
@@ -187,96 +252,228 @@ footer{
 <body>
 
 <header>
-  <img src="2.png" alt="Imperfect Machine Logo">
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="index.html#music">Music</a>
-    <a href="index.html#news">News</a>
-  </nav>
+<img src="2.png" alt="Imperfect Machine Logo">
+<p class="tagline">Choose a song to view lyrics and credits.</p>
+<nav>
+<a href="index.html">Home</a>
+<a href="index.html#music">Music</a>
+<a href="lyrics.html">Lyrics</a>
+<a href="index.html#about">About</a>
+</nav>
 </header>
 
-<div class="container">
+<main class="container">
+<section>
+<h2>Songs</h2>
+<p class="section-lead">Select a track to view its full lyrics and credits.</p>
 
-<h1>Lyrics</h1>
+<div class="grid grid-2">
 
-<div class="song-nav">
-  <a href="#the-nothing">The Nothing</a>
-  <a href="#into-the-night">Into The Night</a>
-  <a href="#dont-count-on-me">Don’t Count On Me</a>
+<div class="card">
+<h3 style="margin-top:0;">Tracklist</h3>
+<ul class="song-list">
+<li><button class="song-button active" data-song-id="into-the-night">Into The Night (feat. Dead Echoes)</button></li>
+<li><button class="song-button" data-song-id="dont-count-on-me">Don’t Count On Me (feat. Dead Echoes)</button></li>
+</ul>
 </div>
 
-<!-- THE NOTHING -->
-<div class="song" id="the-nothing">
-  <h2>The Nothing</h2>
-  <div class="lyrics">
-Lyrics for “The Nothing” go here.
-  </div>
-</div>
+<div id="songDetail" class="card">
+<h3 id="songTitle" style="margin-top:0;"></h3>
+<div class="action-row" id="songLinks"></div>
+<iframe id="spotifyEmbed" class="spotify-embed" src="" loading="lazy"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-<!-- INTO THE NIGHT -->
-<div class="song" id="into-the-night">
-  <h2>Into The Night</h2>
-  <div class="lyrics">
-My limbs are frozen  
-A body without a soul  
-Another hopeless surrender  
-And I hate the way  
-You left me to feel this all alone  
-Here we go  
+<h4>Credits</h4>
+<ul id="creditsList" class="credits-list"></ul>
 
-Into the night  
-Into the darkness where I can’t breathe  
-Into the night  
-Into the storm that’s inside of me  
-Into the night  
-  </div>
-</div>
-
-<!-- DON'T COUNT ON ME -->
-<div class="song" id="dont-count-on-me">
-  <h2>Don’t Count On Me</h2>
-  <div class="lyrics">
-We built our love in this life we made  
-Felt good with everything  
-Then we got hit with a sudden change  
-Near the end  
-
-All my life  
-I’ve always tried to be the voice of reason  
-Now this time  
-Don’t count on me  
-  </div>
-
-  <div class="credits">
-Written By: Matthew Smith  
-Performed By: Matthew Smith & Bryan Coulter  
-Produced By: Matthew Smith & Imperfect Machine (AI-Assisted)  
-Mastered By: David Sayago
-  </div>
+<h4>Lyrics</h4>
+<pre id="lyricsBox" class="lyrics-box"></pre>
 </div>
 
 </div>
+</section>
+</main>
 
-<button id="backToTop">↑</button>
+<button id="themeToggle" class="theme-toggle">☾</button>
 
 <footer>
-  &copy; <span id="year"></span> Imperfect Machine
+&copy; <span id="year"></span> Imperfect Machine. All rights reserved.
 </footer>
 
 <script>
+(function(){
+const root=document.documentElement;
+const stored=localStorage.getItem('imperfect-theme');
+root.setAttribute('data-theme',stored||'dark');
+document.getElementById('themeToggle').onclick=function(){
+const current=root.getAttribute('data-theme');
+const next=current==='dark'?'light':'dark';
+root.setAttribute('data-theme',next);
+localStorage.setItem('imperfect-theme',next);
+};
 document.getElementById('year').textContent=new Date().getFullYear();
+})();
 
-const backToTop = document.getElementById("backToTop");
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 400) {
-    backToTop.classList.add("show");
-  } else {
-    backToTop.classList.remove("show");
-  }
+const songs={
+"into-the-night":{
+title:"Into The Night (feat. Dead Echoes)",
+spotify:"https://open.spotify.com/track/2HLkJVvWlfhSoV6GYDiDds",
+spotifyEmbed:"https://open.spotify.com/embed/track/2HLkJVvWlfhSoV6GYDiDds",
+apple:"https://music.apple.com/us/album/into-the-night-feat-dead-echoes/1861223150?i=1861223151",
+youtube:"https://youtu.be/xJVYUJiZNvo",
+credits:[
+"Written By: Matthew Smith",
+"Performed By: Matthew Smith & Bryan Coulter",
+"Produced By: Matthew Smith & Imperfect Machine (AI-Assisted)",
+"Mastered By: David Sayago"
+],
+lyrics:`VERSE 1:
+My limbs are frozen 
+A body without a soul 
+Another hopeless surrender
+And I hate the way 
+You left me to feel this all alone 
+Here we go 
+
+CHORUS:
+Into the night 
+Into the darkness where I can’t breathe 
+Into the night 
+Into the storm that’s inside of me 
+Into the night 
+
+VERSE 2:
+My thoughts control me 
+Don’t want me to be no more 
+(Give me a life to remember) 
+And I hate the way
+I feel so disposable 
+When you let me go 
+
+CHORUS:
+Into the night 
+Into the darkness where I can’t breathe 
+Into the night 
+Into the storm that’s inside of me 
+Into the night 
+Into the darkness where I can’t breathe 
+Into the night 
+Into the storm that’s inside of me 
+Into the night 
+
+CHORUS:
+Into the night 
+Into the darkness where I can’t breathe 
+Into the night 
+Into the storm that’s inside of me 
+Into the night 
+Into the darkness where I can’t breathe 
+Into the night 
+Into the storm that’s inside of me 
+Into the night`
+},
+
+"dont-count-on-me":{
+title:"Don’t Count On Me (feat. Dead Echoes)",
+spotify:"https://open.spotify.com/track/0Tl3yFExWqU5zwJQcF3nAb",
+spotifyEmbed:"https://open.spotify.com/embed/track/0Tl3yFExWqU5zwJQcF3nAb",
+apple:"https://music.apple.com/us/album/dont-count-on-me-feat-dead-echoes/1857400042?i=1857400043",
+youtube:"https://youtu.be/VgYaynOu25k",
+credits:[
+"Written By: Matthew Smith",
+"Performed By: Matthew Smith & Bryan Coulter",
+"Produced By: Matthew Smith & Imperfect Machine (AI-Assisted)",
+"Mastered By: David Sayago"
+],
+lyrics:`VERSE 1:
+We built our love in this life we made 
+Felt good with everything 
+Then we got hit with a sudden change 
+Near the end 
+Every fight I’m left with all the blame 
+I gave you everything 
+Still you just chose to run away 
+In the end 
+
+PRECHORUS:
+It’s so hard to breathe when you can’t get away 
+
+CHORUS:
+All my life 
+I’ve always tried to be the voice of reason 
+Now this time 
+Don’t count on me, count on me
+All my life 
+You tried to say there was no choice for leaving 
+Now this time 
+Don’t count on me, count on me 
+
+VERSE 2: 
+I’m all played out from this masquerade 
+You made up everything
+So now I suffer from the pain 
+In your head 
+
+PRECHORUS:
+It’s so hard to breathe when you can’t get away 
+
+CHORUS:
+All my life 
+I’ve always tried to be the voice of reason 
+Now this time 
+Don’t count on me, count on me
+All my life 
+You tried to say there was no choice for leaving 
+Now this time 
+Don’t count on me, count on me 
+
+BRIDGE:
+You wanted more when I gave you everything 
+Your finding comfort in all your lies 
+Look what you’ve done with all your hate yea
+You should have just turned and walked away 
+In the end
+In the end 
+In the end
+
+CHORUS:
+All my life 
+I’ve always tried to be the voice of reason 
+Now this time 
+Don’t count on me, count on me
+All my life 
+You tried to say there was no choice for leaving 
+Now this time 
+Don’t count on me, count on me 
+
+OUTRO:
+Don’t count on me
+Don’t count on me
+Don’t count on me`
+}
+};
+
+function renderSong(id){
+const song=songs[id];
+if(!song)return;
+document.getElementById('songTitle').textContent=song.title;
+document.getElementById('spotifyEmbed').src=song.spotifyEmbed;
+document.getElementById('creditsList').innerHTML=song.credits.map(c=>`<li>${c}</li>`).join("");
+document.getElementById('lyricsBox').textContent=song.lyrics;
+document.getElementById('songLinks').innerHTML=
+`<a class="action-btn" href="${song.spotify}" target="_blank">Spotify</a>
+<a class="action-btn" href="${song.apple}" target="_blank">Apple Music</a>
+<a class="action-btn" href="${song.youtube}" target="_blank">YouTube</a>`;
+document.querySelectorAll('.song-button').forEach(btn=>{
+btn.classList.toggle('active',btn.dataset.songId===id);
 });
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+document.querySelectorAll('.song-button').forEach(btn=>{
+btn.onclick=()=>renderSong(btn.dataset.songId);
+});
+renderSong('into-the-night');
 });
 </script>
 
